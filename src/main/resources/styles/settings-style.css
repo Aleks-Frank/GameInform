@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Hanky Bold';
+    src: url('../fonts/HankyBold/Hanky-Bold-ff.otf');
+}
+
+// кнопки
+.close-butten {
+    -fx-background-color: transparent;
+    -fx-padding: -5;
+}
+
+// название окна
+.name-text {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: black;
+    -fx-font-size: 35px;
+}
+
+// описание
+.scores-text {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: black;
+    -fx-font-size: 18,5px;
+}
+
+// основная панель
+.transparent-pane {
+    -fx-background-color: transparent;
+}

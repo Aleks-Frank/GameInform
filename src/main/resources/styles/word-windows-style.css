@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'Hanky Bold';
+    src: url('../fonts/HankyBold/Hanky-Bold-ff.otf');
+}
+
+// кнопки
+.enter-butten {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: black;
+    -fx-font-size: 30px;
+    -fx-background-color: transparent;
+    -fx-padding: -5;
+}
+
+.transparent-pane {
+    -fx-background-color: transparent;
+}
+
+// название окна
+.name-text {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: black;
+    -fx-font-size: 35px;
+}
+
+// описание
+.task-text {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: black;
+    -fx-font-size: 24px;
+}
+
+// кнопки
+.next-butten {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: black;
+    -fx-font-size: 25px;
+    -fx-background-color: transparent;
+    -fx-padding: -5;
+}
+
+// количество звезд
+.count-stars {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: #543324;
+    -fx-font-size: 25px;
+}
+
+// кнопки
+.back-butten {
+    -fx-background-color: transparent;
+    -fx-padding: -5;
+}

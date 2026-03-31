@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="238.0" prefWidth="367.0" styleClass="transparent-pane" stylesheets="@../../../styles/word-windows-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.infogames.controllers.CheckerController">
+   <children>
+      <ImageView fitHeight="238.0" fitWidth="386.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/checker/fon.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="buttonShowTask" contentDisplay="CENTER" layoutX="29.0" layoutY="39.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="314.0" styleClass="enter-butten" text="Задание">
+         <graphic>
+            <ImageView fx:id="imageShowTask" fitHeight="57.0" fitWidth="312.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/checker/bottun.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="buttonChecker" contentDisplay="CENTER" layoutX="29.0" layoutY="133.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="314.0" styleClass="enter-butten" text="Проверить">
+         <graphic>
+            <ImageView fx:id="imageChecker" fitHeight="57.0" fitWidth="312.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/checker/bottun.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

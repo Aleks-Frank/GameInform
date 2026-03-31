@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="537.0" prefWidth="988.0" styleClass="transparent-pane" stylesheets="@../../../styles/levels-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.infogames.controllers.LevelsController">
+   <children>
+      <ImageView fitHeight="505.0" fitWidth="940.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/levels/levels-fon.png" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER" layoutX="150.0" layoutY="205.0" prefHeight="79.0" prefWidth="640.0" spacing="15.0">
+         <children>
+            <Button fx:id="buttonTaskOne" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="81.0" styleClass="button-enter" stylesheets="@../../../styles/levels-style.css" text="1">
+               <graphic>
+                  <ImageView fx:id="imageTaskOne" fitHeight="103.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/levels/button-level.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="-20.0" left="-10.0" right="-10.0" top="-10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="buttonTaskTwo" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="81.0" styleClass="button-enter" stylesheets="@../../../styles/levels-style.css" text="2">
+               <graphic>
+                  <ImageView fx:id="imageTaskTwo" fitHeight="103.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/levels/button-level.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="-20.0" left="-10.0" right="-10.0" top="-10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="buttonTaskThree" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="81.0" styleClass="button-enter" stylesheets="@../../../styles/levels-style.css" text="3">
+               <graphic>
+                  <ImageView fx:id="imageTaskThree" fitHeight="103.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/levels/button-level.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="-20.0" left="-10.0" right="-10.0" top="-10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="buttonTaskFour" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="81.0" styleClass="button-enter" stylesheets="@../../../styles/levels-style.css" text="4">
+               <graphic>
+                  <ImageView fx:id="imageTaskFour" fitHeight="103.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/levels/button-level.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="-20.0" left="-10.0" right="-10.0" top="-10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="buttonTaskFive" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="81.0" styleClass="button-enter" stylesheets="@../../../styles/levels-style.css" text="5">
+               <graphic>
+                  <ImageView fx:id="imageTaskFive" fitHeight="103.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/levels/button-level.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="-20.0" left="-10.0" right="-10.0" top="-10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="buttonTaskSix" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="81.0" styleClass="button-enter" stylesheets="@../../../styles/levels-style.css" text="6">
+               <graphic>
+                  <ImageView fx:id="imageTaskSix" fitHeight="103.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/levels/button-level.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="-20.0" left="-10.0" right="-10.0" top="-10.0" />
+               </padding>
+            </Button>
+         </children>
+      </HBox>
+      <Label alignment="CENTER" layoutX="310.0" layoutY="95.0" prefHeight="62.0" prefWidth="314.0" styleClass="name-text" text="Выбери уровень" textAlignment="CENTER" />
+      <Label fx:id="countStars" alignment="CENTER" layoutX="680.0" layoutY="466.0" prefHeight="51.0" prefWidth="138.0" styleClass="count-stars" text="0" />
+      <Button fx:id="buttonClose" layoutX="901.0" layoutY="29.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" styleClass="close-butten">
+         <graphic>
+            <ImageView fx:id="imageClose" fitHeight="66.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/login/buttom-close.png" />
+               </image></ImageView>
+         </graphic>
+         <padding>
+            <Insets bottom="-5.0" left="-5.0" right="-5.0" top="-5.0" />
+         </padding>
+      </Button>
+      <Button fx:id="buttonSettings" layoutX="30.0" layoutY="74.0" mnemonicParsing="false" prefHeight="89.0" prefWidth="80.0" styleClass="settings-butten">
+         <graphic>
+            <ImageView fx:id="imageSettings" fitHeight="96.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/levels/button-settings.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="buttonBack" layoutX="30.0" layoutY="440.0" mnemonicParsing="false" prefHeight="89.0" prefWidth="80.0" styleClass="settings-butten">
+         <graphic>
+            <ImageView fx:id="imageBack" fitHeight="88.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/levels/button-back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <HBox alignment="CENTER" layoutX="150.0" layoutY="332.0" prefHeight="79.0" prefWidth="640.0" spacing="15.0">
+         <children>
+            <Button fx:id="buttonTaskSeven" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="81.0" styleClass="button-enter" stylesheets="@../../../styles/levels-style.css" text="7">
+               <graphic>
+                  <ImageView fx:id="imageTaskSeven" fitHeight="103.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/levels/button-level.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="-20.0" left="-10.0" right="-10.0" top="-10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="buttonTaskEight" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="81.0" styleClass="button-enter" stylesheets="@../../../styles/levels-style.css" text="8">
+               <graphic>
+                  <ImageView fx:id="imageTaskEight" fitHeight="103.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/levels/button-level.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="-20.0" left="-10.0" right="-10.0" top="-10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="buttonTaskNine" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="81.0" styleClass="button-enter" stylesheets="@../../../styles/levels-style.css" text="9">
+               <graphic>
+                  <ImageView fx:id="imageTaskNine" fitHeight="103.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/levels/button-level.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="-20.0" left="-10.0" right="-10.0" top="-10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="buttonTaskTen" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="81.0" styleClass="button-enter" stylesheets="@../../../styles/levels-style.css" text="10">
+               <graphic>
+                  <ImageView fx:id="imageTaskTen" fitHeight="103.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/levels/button-level.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="-20.0" left="-10.0" right="-10.0" top="-10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="buttonTaskEleven" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="81.0" styleClass="button-enter" stylesheets="@../../../styles/levels-style.css" text="11">
+               <graphic>
+                  <ImageView fx:id="imageTaskEleven" fitHeight="103.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/levels/button-level.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="-20.0" left="-10.0" right="-10.0" top="-10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="buttonTaskTwelve" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="81.0" styleClass="button-enter" stylesheets="@../../../styles/levels-style.css" text="12">
+               <graphic>
+                  <ImageView fx:id="imageTaskTwelve" fitHeight="103.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/levels/button-level.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="-20.0" left="-10.0" right="-10.0" top="-10.0" />
+               </padding>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

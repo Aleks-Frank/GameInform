@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="603.0" prefWidth="528.0" styleClass="transparent-pane" stylesheets="@../../../styles/login-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.infogames.controllers.LoginController">
+   <children>
+      <ImageView fitHeight="559.0" fitWidth="486.0" layoutY="44.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../image/login/login-fon.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="buttonClose" layoutX="438.0" layoutY="14.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" styleClass="close-butten">
+         <graphic>
+            <ImageView fx:id="imageClose" fitHeight="66.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/login/buttom-close.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label alignment="CENTER" layoutX="91.0" layoutY="76.0" prefHeight="50.0" prefWidth="304.0" styleClass="name-text" text="Войти в игру" textAlignment="CENTER">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <TextField fx:id="inputLogin" layoutX="115.0" layoutY="166.0" prefHeight="41.0" prefWidth="288.0" promptText="Логин" />
+      <TextField fx:id="inputPassword" layoutX="115.0" layoutY="245.0" prefHeight="41.0" prefWidth="288.0" promptText="Пароль" />
+      <Label alignment="CENTER" layoutX="89.0" layoutY="452.0" prefHeight="33.0" prefWidth="309.0" styleClass="question-text" text="Превый раз в игре?" />
+      <Button fx:id="buttonEnter" contentDisplay="CENTER" layoutX="70.0" layoutY="332.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="261.0" styleClass="button-enter" text="Войти" textOverrun="LEADING_WORD_ELLIPSIS">
+         <graphic>
+            <ImageView fx:id="imageEnter" fitHeight="66.0" fitWidth="307.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view-button-enter">
+               <image>
+                  <Image url="@../../../image/login/buttom-enter.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="buttonRegister" contentDisplay="CENTER" layoutX="70.0" layoutY="485.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="261.0" styleClass="button-enter" text="Зарегестрироваться">
+         <graphic>
+            <ImageView fx:id="imageRegister" fitHeight="66.0" fitWidth="307.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/login/buttom-regis.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="labelError" alignment="CENTER" layoutX="89.0" layoutY="416.0" prefHeight="20.0" prefWidth="309.0" styleClass="question-text" />
+   </children>
+</AnchorPane>

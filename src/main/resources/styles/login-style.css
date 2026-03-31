@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Hanky Bold';
+    src: url('../fonts/HankyBold/Hanky-Bold-ff.otf');
+}
+
+.name-text {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: black;
+    -fx-font-size: 35px;
+}
+
+.button-enter {
+    -fx-background-color: transparent;
+    -fx-font-family: 'Hanky Bold';
+    -fx-font-size: 30px;
+    -fx-fill: black;
+}
+
+.question-text {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: black;
+    -fx-font-size: 20px;
+}
+
+.text-input {
+    -fx-font-family: 'Hanky Bold';
+    -fx-background-color: transparent;
+    -fx-font-size: 30px;
+}
+
+.text-field {
+     -fx-font-family: 'Hanky Bold';
+     -fx-background-color: transparent;
+     -fx-font-size: 30px;
+    -fx-prompt-text-fill: gray;
+}
+
+.text-field .text {
+    -fx-font-family: 'Hanky Bold';
+    -fx-background-color: transparent;
+    -fx-font-size: 30px;
+    -fx-fill: black;
+}
+
+.transparent-pane {
+    -fx-background-color: transparent;
+}
+
+.close-butten {
+    -fx-background-color: transparent;
+}
+
+.image-view-button-enter {
+    -fx-image: url('../image/login/buttom-enter.png');
+}
+
+.image-view-button-enter:hover {
+    -fx-image: url('../image/login/buttom-enter-hover.png');
+}
+
+.image-view-button-enter:pressed {
+    -fx-image: url('../image/login/buttom-enter-hover.png');
+}

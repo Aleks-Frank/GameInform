@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="410.0" prefWidth="338.0" styleClass="transparent-pane" stylesheets="@../../../styles/settings-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.infogames.controllers.ScoresController">
+   <children>
+      <ImageView fitHeight="380.0" fitWidth="308.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/scores/fon.png" />
+         </image>
+      </ImageView>
+       <Button fx:id="buttonClose" layoutX="280.0" layoutY="14.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="34.0" styleClass="close-butten">
+           <graphic>
+               <ImageView fx:id="imageClose" fitHeight="54.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@../../../image/login/buttom-close.png" />
+                   </image>
+               </ImageView>
+           </graphic>
+       </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="58.0" prefHeight="50.0" prefWidth="206.0" styleClass="name-text" text="Оценка" />
+      <Label fx:id="labelScoreInfo" alignment="CENTER" layoutX="52.0" layoutY="142.0" maxWidth="198.0" minWidth="100.0" prefHeight="215.0" prefWidth="198.0" styleClass="scores-text" text="Максимум баллов: 240 Меньше 96 баллов - 2       От 96 до 144 баллов - 3     От 144 до 192 баллов - 4 Больше 192 баллов - 5 " textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" />
+   </children>
+</AnchorPane>

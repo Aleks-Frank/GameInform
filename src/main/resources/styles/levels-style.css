@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'Hanky Bold';
+    src: url('../fonts/HankyBold/Hanky-Bold-ff.otf');
+}
+
+// кнопки уровней
+.button-enter {
+    -fx-background-color: transparent;
+    -fx-font-family: 'Hanky Bold';
+    -fx-font-size: 35px;
+    -fx-fill: black;
+}
+
+// название окна
+.name-text {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: black;
+    -fx-font-size: 35px;
+}
+
+// количество звезд
+.count-stars {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: #543324;
+    -fx-font-size: 35px;
+}
+
+// кнопка для закрытия
+.close-butten {
+    -fx-background-color: transparent;
+}
+// Кнопка настроек
+.settings-butten {
+    -fx-background-color: transparent;
+    -fx-padding: -5;
+}
+
+.transparent-pane {
+    -fx-background-color: transparent;
+}
+

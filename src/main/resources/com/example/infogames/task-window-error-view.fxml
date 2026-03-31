@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="303.0" prefWidth="420.0" styleClass="transparent-pane" stylesheets="@../../../styles/word-windows-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.infogames.controllers.TaskWindowErrorController">
+    <children>
+        <ImageView fitHeight="303.0" fitWidth="431.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../image/task_window_error/fon.png" />
+            </image>
+        </ImageView>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="97.0" layoutY="27.0" prefHeight="39.0" prefWidth="232.0" styleClass="name-text" text="Ой..." />
+        <Label alignment="CENTER" layoutX="32.0" layoutY="120.0" prefHeight="76.0" prefWidth="362.0" styleClass="task-text" />
+        <Label alignment="CENTER" layoutX="51.0" layoutY="243.0" prefHeight="32.0" prefWidth="323.0" styleClass="task-text" />
+      <Label alignment="CENTER" layoutX="33.0" layoutY="120.0" prefHeight="76.0" prefWidth="356.0" styleClass="task-text" text="Задание сделано не до конца!" />
+        <Button fx:id="buttonBack" contentDisplay="CENTER" layoutX="112.0" layoutY="243.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="203.0" styleClass="next-butten" text="Продолжить">
+            <graphic>
+                <ImageView fx:id="imageBack" fitHeight="37.0" fitWidth="228.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../image/checker/bottun.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+    </children>
+</AnchorPane>
