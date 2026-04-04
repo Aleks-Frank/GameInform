@@ -1,5 +1,8 @@
 package org.example.reader;
 
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.example.entity.ParagraphSettings;
 import org.example.entity.RunSettings;
 import org.example.entity.TextLine;
@@ -14,9 +17,7 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -37,22 +38,13 @@ public class ReaderTextFile {
     }
 
     public List<ParagraphSettings> parseDocument(){
-        List<ParagraphSettings> paragraph;
+        List<ParagraphSettings> paragraph = new ArrayList<>();
 
-        try(ZipFile zipFile = new ZipFile(docxFile)){
-            ZipEntry documentEntry = zipFile.getEntry("word/document.xml");
-            if(documentEntry == null){
-                throw new IOException("Document not found");
+        try(FileInputStream fis = new FileInputStream(docxFile);
+            XWPFDocument document = new XWPFDocument(fis)) {
+            for(int i = 0; i < document.getParagraphs().size(); i++){
+                paragraph.add(readParagraph(document.getParagraphs().get(i)));
             }
-            try(InputStream inputStream = zipFile.getInputStream(documentEntry)){
-                paragraph = parseDocumentXml(inputStream);
-            } catch (ParserConfigurationException e) {
-                throw new RuntimeException(e);
-            } catch (SAXException e) {
-                throw new RuntimeException(e);
-            }
-        } catch (ZipException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -60,167 +52,54 @@ public class ReaderTextFile {
         return paragraph;
     }
 
-    private List<ParagraphSettings> parseDocumentXml(InputStream inputStream) throws ParserConfigurationException, IOException, SAXException {
-        List<ParagraphSettings> paragraphsList = new ArrayList<>();
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder documentBuilder = factory.newDocumentBuilder();
-        Document doc = documentBuilder.parse(inputStream);
-
-        NodeList paragraphs = doc.getElementsByTagName("w:p");
-
-        for(int i = 0; i < paragraphs.getLength(); i++){
-            Element paragraph = (Element) paragraphs.item(i);
-            ParagraphSettings paragraphsToList = readParagraph(paragraph);
-            if (!isEmptyParagraph(paragraphsToList) && !isEmptyIgnoringTrailingSpaces(paragraphsToList)) {
-                paragraphsList.add(paragraphsToList);
-            }
-        }
-
-        return paragraphsList;
-    }
-
-    private ParagraphSettings readParagraph(Element paragraph){
+    private ParagraphSettings readParagraph(XWPFParagraph paragraph){
         ParagraphSettings paragraphSettings = new ParagraphSettings();
         List<TextLine> runList = new ArrayList<>();
 
-        NodeList runs = paragraph.getElementsByTagName("w:r");
-
-        for(int i = 0; i < runs.getLength(); i++){
-            Element runElement = (Element) runs.item(i);
-            TextLine run = readRuns(runElement);
+        for(int i = 0; i < paragraph.getRuns().size(); i++){
+            TextLine run = readRuns(paragraph.getRuns().get(i));
             runList.add(run);
         }
 
-        // ✅ Объединяем run'ы с одинаковыми настройками
         List<TextLine> mergedRuns = mergeRunsWithSameSettings(runList);
 
-        // ✅ Нормализуем пробелы
         List<TextLine> clearRuns = SpaceWorker.normalizeSpace(mergedRuns);
 
         paragraphSettings.setParagraph(clearRuns);
-        paragraphSettings.setRedLine(readRedLine(paragraph));
+        paragraphSettings.setRedLine(paragraph.getIndentationFirstLine() > 0);
         paragraphSettings.setAlignment(readAlignment(paragraph));
         return paragraphSettings;
     }
 
-    private Alignment readAlignment(Element element){
-        String defaultAlign = "left";
-        NodeList paragraphProperties = element.getElementsByTagName("w:pPr");
-        if(paragraphProperties.getLength() > 0) {
-            Element pPr = (Element) paragraphProperties.item(0);
-            NodeList justification = pPr.getElementsByTagName("w:jc");
-            if(justification.getLength() > 0){
-                Element jc = (Element) justification.item(0);
-                defaultAlign = jc.getAttribute("w:val");
-            }
-        }
-        return ReaderAlignment.readAlignment(defaultAlign);
+//    private Alignment readAlignment(Element element){
+//        String defaultAlign = "left";
+//        NodeList paragraphProperties = element.getElementsByTagName("w:pPr");
+//        if(paragraphProperties.getLength() > 0) {
+//            Element pPr = (Element) paragraphProperties.item(0);
+//            NodeList justification = pPr.getElementsByTagName("w:jc");
+//            if(justification.getLength() > 0){
+//                Element jc = (Element) justification.item(0);
+//                defaultAlign = jc.getAttribute("w:val");
+//            }
+//        }
+//        return ReaderAlignment.readAlignment(defaultAlign);
+//    }
+
+    private TextLine readRuns(XWPFRun run){
+        return new TextLine(readText(run), readSettings(run));
     }
 
-    private Boolean readRedLine(Element element) {
-        NodeList paragraphProps = element.getElementsByTagName("w:pPr");
-        if (paragraphProps.getLength() > 0) {
-            Element pPr = (Element) paragraphProps.item(0);
-            NodeList indNodes = pPr.getElementsByTagName("w:ind");
-
-            if (indNodes.getLength() > 0) {
-                Element ind = (Element) indNodes.item(0);
-                String firstLine = ind.getAttribute("w:firstLine");
-                if (firstLine != null && !firstLine.isEmpty() && !"0".equals(firstLine)) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
+    private String readText(XWPFRun run){
+        return run.text();
     }
 
-    private TextLine readRuns(Element element){
-        return new TextLine(readText(element), readSettings(element));
-    }
-
-    private String readText(Element element){
-        StringBuilder text = new StringBuilder();
-
-        NodeList textNode = element.getElementsByTagName("w:t");
-
-        for(int i = 0; i < textNode.getLength(); i++){
-            Element textValue = (Element) textNode.item(i);
-            String content = textValue.getTextContent();
-            if(content != null){
-                text.append(content);
-            }
-        }
-
-        return text.toString();
-    }
-
-    private RunSettings readSettings(Element element){
+    private RunSettings readSettings(XWPFRun run){
         RunSettings settings = new RunSettings();
 
-        NodeList runProperties = element.getElementsByTagName("w:rPr");
+        settings.setNameFont(run.getFontName());
+        settings.setSizeFont(run.getFontSize());
+        settings.setUnderline();
 
-        if(runProperties.getLength() > 0){
-            Element rPr = (Element) runProperties.item(0);
-
-            NodeList nameFont = rPr.getElementsByTagName("w:rFonts");
-            if(nameFont.getLength() > 0){
-                Element font = (Element) nameFont.item(0);
-                String name = font.getAttribute("w:ascii");
-                if(!name.isEmpty()){
-                    settings.setNameFont(name);
-                }
-            }
-
-            NodeList sizeFont = rPr.getElementsByTagName("w:sz");
-            if(sizeFont.getLength() > 0){
-                Element size = (Element) sizeFont.item(0);
-                String sizeValue = size.getAttribute("w:val");
-                if(!sizeValue.isEmpty()){
-                    settings.setSizeFont(Integer.parseInt(sizeValue) / 2);
-                }
-            }
-
-            NodeList bold = rPr.getElementsByTagName("w:b");
-            if(bold.getLength() > 0){
-                settings.setBold(true);
-            }
-
-            NodeList italic = rPr.getElementsByTagName("w:i");
-            if(italic.getLength() > 0){
-                settings.setItalic(true);
-            }
-
-            NodeList colorFont = rPr.getElementsByTagName("w:color");
-            if(colorFont.getLength() > 0){
-                Element color = (Element) colorFont.item(0);
-                String colorValue = color.getAttribute("w:val");
-                if(!colorValue.isEmpty()){
-                    settings.setColorText(colorValue);
-                }
-            }
-
-            NodeList underlineFont = rPr.getElementsByTagName("w:u");
-            if(underlineFont.getLength() > 0){
-                Element underline = (Element) underlineFont.item(0);
-                String underlineValue = underline.getAttribute("w:val");
-                if(!underlineValue.isEmpty()){
-                    UnderlineSettings underlineSettings = new UnderlineSettings();
-                    underlineSettings.setNameLine(ReaderUnderline.readUnderline(underlineValue));
-                    settings.setUnderline(underlineSettings);
-                }
-            }
-
-            NodeList strikethroughFont = rPr.getElementsByTagName("w:shd");
-            if(strikethroughFont.getLength() > 0){
-                Element strikethrough = (Element) strikethroughFont.item(0);
-                String strikethroughValue = strikethrough.getAttribute("w:fill");
-                if(!strikethroughValue.isEmpty()){
-                    settings.setStrikethrough(strikethroughValue);
-                }
-            }
-
-        }
 
         return settings;
     }
