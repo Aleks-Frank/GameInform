@@ -1,0 +1,15 @@
+.close-button {
+    -fx-background-color: transparent;
+}
+
+.image-view-button-close {
+    -fx-image: url('../image/close_image/buttom-close.png');
+}
+
+.close-button:hover .image-view-button-close {
+    -fx-image: url('../image/close_image/buttom-close-hover.png');
+}
+
+.close-button:pressed .image-view-button-close {
+    -fx-image: url('../image/close_image/buttom-close-pre.png');
+}

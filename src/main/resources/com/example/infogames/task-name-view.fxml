@@ -7,24 +7,24 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="588.0" prefWidth="617.0" stylesheets="@../../../styles/regis-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.infogames.controllers.TaskNameController">
+<AnchorPane prefHeight="538.0" prefWidth="575.0" stylesheets="@../../../styles/regis-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.infogames.controllers.TaskNameController">
 
     <children>
-        <ImageView fitHeight="582.0" fitWidth="586.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="582.0" fitWidth="586.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../image/task/fon.png" />
             </image>
         </ImageView>
-        <Button fx:id="buttonClose" layoutX="539.0" layoutY="25.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" styleClass="close-butten">
+        <Button fx:id="buttonClose" layoutX="502.0" layoutY="35.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="63.0" styleClass="close-butten">
             <graphic>
-                <ImageView fx:id="imageClose" fitHeight="66.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="imageClose" fitHeight="60.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../../image/login/buttom-close.png" />
+                        <Image url="@../../../image/close_image/buttom-close.png" />
                     </image>
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="buttonBack" layoutX="37.0" layoutY="481.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="63.0" styleClass="close-butten">
+        <Button fx:id="buttonBack" layoutX="39.0" layoutY="422.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="63.0" styleClass="close-butten">
             <graphic>
                 <ImageView fx:id="imageBack" fitHeight="61.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -35,8 +35,8 @@
             <padding>
                 <Insets bottom="-5.0" left="-5.0" right="-5.0" top="-5.0" />
             </padding></Button>
-        <Label alignment="CENTER" layoutX="81.0" layoutY="91.0" prefHeight="52.0" prefWidth="425.0" styleClass="name-text" text="Задание" />
-        <Button fx:id="buttonNext" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="168.0" layoutY="493.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="250.0" styleClass="enter-butten" text="Продолжить">
+        <Label alignment="CENTER" layoutX="77.0" layoutY="40.0" prefHeight="52.0" prefWidth="425.0" styleClass="name-text" text="Задание" />
+        <Button fx:id="buttonNext" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="165.0" layoutY="428.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="250.0" styleClass="enter-butten" text="Продолжить">
             <graphic>
                 <ImageView fx:id="imageNext" fitHeight="74.0" fitWidth="249.0" pickOnBounds="true" preserveRatio="true">
                     <image>

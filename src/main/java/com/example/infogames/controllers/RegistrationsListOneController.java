@@ -1,6 +1,7 @@
 package com.example.infogames.controllers;
 
 import com.example.infogames.listView.ListViews;
+import com.example.infogames.specialMethods.RegistrationMethods;
 import com.example.infogames.specialMethods.SwitchMethods;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -47,6 +48,6 @@ public class RegistrationsListOneController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SwitchMethods.closeWindow(buttonClose);
         SwitchMethods.switchWindow(buttonBack, ListViews.LOGIN_VIEW);
-        SwitchMethods.switchWindow(buttonNext, ListViews.REGISTRATION_LIST_TWO_VIEW);
+        RegistrationMethods.saveInfoToGlobalJSONStudent(buttonNext, ListViews.REGISTRATION_LIST_TWO_VIEW, inputClass, inputSchool, inputName, inputSurname);
     }
 }

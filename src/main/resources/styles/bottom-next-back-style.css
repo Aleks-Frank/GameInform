@@ -1,0 +1,28 @@
+.bottom-settings{
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.image-view-button-next {
+    -fx-image: url('../image/bottom_next_and_back/buttom-next.png');
+}
+
+.bottom-settings:hover .image-view-button-next {
+    -fx-image: url('../image/bottom_next_and_back/buttom-next-hover.png');
+}
+
+.bottom-settings:pressed .image-view-button-next {
+    -fx-image: url('../image/bottom_next_and_back/buttom-next-pre.png');
+}
+
+.image-view-button-back {
+    -fx-image: url('../image/bottom_next_and_back/buttom-back.png');
+}
+
+.bottom-settings:hover .image-view-button-back {
+    -fx-image: url('../image/bottom_next_and_back/buttom-back-hover.png');
+}
+
+.bottom-settings:pressed .image-view-button-back {
+    -fx-image: url('../image/bottom_next_and_back/buttom-back-pre.png');
+}

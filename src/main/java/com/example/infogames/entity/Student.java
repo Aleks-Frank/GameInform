@@ -1,52 +1,54 @@
 package com.example.infogames.entity;
 
-public class Student {
-    private int id;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+public class Student {
+
+    @JsonProperty("name")
     private String firstName;
 
+    @JsonProperty("surname")
     private String lastName;
 
+    @JsonProperty("role")
     private String role;
 
-    private int classStudent;
+    @JsonProperty("number")
+    private int studentNumber;
 
+    @JsonProperty("school")
+    private String school;
+
+    @JsonProperty("login")
     private String login;
 
+    @JsonProperty("password")
     private String password;
 
+    @JsonProperty("stars")
     private int countCoins = 0;
-
-    private int resultDragonPicker = 0;
 
     public Student(){}
 
-    public Student(String firstName, String lastName, String role, int classStudent, String login, String password){
+    public Student(String firstName, String lastName, String role, int classStudent, String school, String login, String password){
         this.firstName = firstName;
         this.lastName = lastName;
         this.role = role;
-        this.classStudent = classStudent;
+        this.studentNumber = classStudent;
+        this.school = school;
         this.login = login;
         this.password = password;
     }
 
     public Student(String role, int classStudent, String login, String password){
         this.role = role;
-        this.classStudent = classStudent;
+        this.studentNumber = classStudent;
         this.login = login;
         this.password = password;
     }
 
     public void PrintInfo(){
         System.out.println(firstName + " " + lastName);
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getFirstName() {
@@ -73,12 +75,12 @@ public class Student {
         this.role = role;
     }
 
-    public int getClassStudent() {
-        return classStudent;
+    public int getStudentNumber() {
+        return studentNumber;
     }
 
-    public void setClassStudent(int classStudent) {
-        this.classStudent = classStudent;
+    public void setStudentNumber(int studentNumber) {
+        this.studentNumber = studentNumber;
     }
 
     public String getLogin() {
@@ -105,11 +107,11 @@ public class Student {
         this.countCoins = countCoins;
     }
 
-    public int getResultDragonPicker() {
-        return resultDragonPicker;
+    public String getSchool() {
+        return school;
     }
 
-    public void setResultDragonPicker(int resultDragonPicker) {
-        this.resultDragonPicker = resultDragonPicker;
+    public void setSchool(String school) {
+        this.school = school;
     }
 }

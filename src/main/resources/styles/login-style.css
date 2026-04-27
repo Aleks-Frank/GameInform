@@ -46,18 +46,27 @@
     -fx-background-color: transparent;
 }
 
-.close-butten {
-    -fx-background-color: transparent;
-}
-
 .image-view-button-enter {
     -fx-image: url('../image/login/buttom-enter.png');
 }
 
-.image-view-button-enter:hover {
+.button-enter:hover .image-view-button-enter {
     -fx-image: url('../image/login/buttom-enter-hover.png');
 }
 
-.image-view-button-enter:pressed {
-    -fx-image: url('../image/login/buttom-enter-hover.png');
+.button-enter:pressed .image-view-button-enter {
+    -fx-image: url('../image/login/buttom-enter-pas.png');
 }
+
+.image-view-button-register {
+    -fx-image: url('../image/login/buttom-regis.png');
+}
+
+.button-enter:hover .image-view-button-register {
+    -fx-image: url('../image/login/buttom-regis-hover.png');
+}
+
+.button-enter:pressed .image-view-button-register {
+    -fx-image: url('../image/login/buttom-regis-pre.png');
+}
+

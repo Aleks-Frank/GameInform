@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="537.0" prefWidth="988.0" styleClass="transparent-pane" stylesheets="@../../../styles/levels-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.infogames.controllers.LevelsController">
+<AnchorPane prefHeight="494.0" prefWidth="933.0" styleClass="transparent-pane" stylesheets="@../../../styles/levels-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.infogames.controllers.LevelsController">
    <children>
-      <ImageView fitHeight="505.0" fitWidth="940.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="558.0" fitWidth="932.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../image/levels/levels-fon.png" />
          </image>
       </ImageView>
-      <HBox alignment="CENTER" layoutX="150.0" layoutY="205.0" prefHeight="79.0" prefWidth="640.0" spacing="15.0">
+      <HBox alignment="CENTER" layoutX="184.0" layoutY="153.0" prefHeight="73.0" prefWidth="488.0" spacing="15.0">
          <children>
             <Button fx:id="buttonTaskOne" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="81.0" styleClass="button-enter" stylesheets="@../../../styles/levels-style.css" text="1">
                <graphic>
@@ -94,20 +94,9 @@
             </Button>
          </children>
       </HBox>
-      <Label alignment="CENTER" layoutX="310.0" layoutY="95.0" prefHeight="62.0" prefWidth="314.0" styleClass="name-text" text="Выбери уровень" textAlignment="CENTER" />
-      <Label fx:id="countStars" alignment="CENTER" layoutX="680.0" layoutY="466.0" prefHeight="51.0" prefWidth="138.0" styleClass="count-stars" text="0" />
-      <Button fx:id="buttonClose" layoutX="901.0" layoutY="29.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" styleClass="close-butten">
-         <graphic>
-            <ImageView fx:id="imageClose" fitHeight="66.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../image/login/buttom-close.png" />
-               </image></ImageView>
-         </graphic>
-         <padding>
-            <Insets bottom="-5.0" left="-5.0" right="-5.0" top="-5.0" />
-         </padding>
-      </Button>
-      <Button fx:id="buttonSettings" layoutX="30.0" layoutY="74.0" mnemonicParsing="false" prefHeight="89.0" prefWidth="80.0" styleClass="settings-butten">
+      <Label alignment="CENTER" layoutX="310.0" layoutY="43.0" prefHeight="62.0" prefWidth="314.0" styleClass="name-text" text="Выбери уровень" textAlignment="CENTER" />
+      <Label fx:id="countStars" alignment="CENTER" layoutX="680.0" layoutY="414.0" prefHeight="51.0" prefWidth="138.0" styleClass="count-stars" text="0" />
+      <Button fx:id="buttonSettings" layoutX="67.0" layoutY="30.0" mnemonicParsing="false" prefHeight="89.0" prefWidth="80.0" styleClass="settings-butten">
          <graphic>
             <ImageView fx:id="imageSettings" fitHeight="96.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -116,7 +105,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="buttonBack" layoutX="30.0" layoutY="440.0" mnemonicParsing="false" prefHeight="89.0" prefWidth="80.0" styleClass="settings-butten">
+      <Button fx:id="buttonBack" layoutX="27.0" layoutY="395.0" mnemonicParsing="false" prefHeight="89.0" prefWidth="80.0" styleClass="settings-butten">
          <graphic>
             <ImageView fx:id="imageBack" fitHeight="88.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -125,7 +114,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <HBox alignment="CENTER" layoutX="150.0" layoutY="332.0" prefHeight="79.0" prefWidth="640.0" spacing="15.0">
+      <HBox alignment="CENTER" layoutX="151.0" layoutY="277.0" prefHeight="79.0" prefWidth="640.0" spacing="15.0">
          <children>
             <Button fx:id="buttonTaskSeven" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="73.0" prefWidth="81.0" styleClass="button-enter" stylesheets="@../../../styles/levels-style.css" text="7">
                <graphic>
@@ -204,5 +193,14 @@
             </Button>
          </children>
       </HBox>
+      <Button fx:id="buttonClose" layoutX="775.0" layoutY="30.0" mnemonicParsing="false" prefHeight="89.0" prefWidth="80.0" styleClass="settings-butten">
+         <graphic>
+            <ImageView fx:id="imageSettings1" fitHeight="96.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/close_image/buttom-close.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

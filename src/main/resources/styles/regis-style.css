@@ -4,18 +4,12 @@
 }
 
 // кнопки
-.close-butten {
-    -fx-background-color: transparent;
-    -fx-padding: -5;
-}
-
-// кнопки
 .enter-butten {
     -fx-font-family: 'Hanky Bold';
     -fx-text-fill: black;
     -fx-font-size: 30px;
     -fx-background-color: transparent;
-    -fx-padding: -5;
+    -fx-padding: 0;  /* Измените с -5 на 0 или уберите */
 }
 
 // название окна
@@ -26,19 +20,18 @@
 }
 
 .text-field {
-     -fx-font-family: 'Hanky Bold';
-     -fx-background-color: transparent;
-     -fx-font-size: 30px;
+    -fx-font-family: 'Hanky Bold';
+    -fx-background-color: transparent;
+    -fx-font-size: 30px;
     -fx-prompt-text-fill: gray;
-    -fx-padding: -5;
+    -fx-padding: 0;  /* ИЗМЕНИТЕ: уберите -5 или поставьте 0 */
 }
 
 .text-field .text {
     -fx-font-family: 'Hanky Bold';
-    -fx-background-color: transparent;
     -fx-font-size: 30px;
     -fx-fill: black;
-    -fx-padding: -5;
+    -fx-padding: 0;  /* ИЗМЕНИТЕ: уберите -5 или поставьте 0 */
 }
 
 .transparent-pane {

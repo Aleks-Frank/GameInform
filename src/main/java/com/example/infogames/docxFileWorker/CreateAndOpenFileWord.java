@@ -1,4 +1,4 @@
-package com.example.infogames.fileWorker;
+package com.example.infogames.docxFileWorker;
 
 import com.example.infogames.globalEntity.GlobalStudentUser;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
@@ -19,7 +19,7 @@ public class CreateAndOpenFileWord {
 
         nameUser = GlobalStudentUser.globalStudent.getFirstName();
         lastNameUser = GlobalStudentUser.globalStudent.getLastName();
-        urlFile = "resources/File/File_" + nameUser + "_" + lastNameUser + ".docx";
+        urlFile = String.valueOf(CreateAndOpenFileWord.class.getResource("resources/File/File_" + nameUser + "_" + lastNameUser + ".docx"));
         File file = new File(urlFile);
 
         if (file.exists()){

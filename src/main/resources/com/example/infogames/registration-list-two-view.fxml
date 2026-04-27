@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -8,46 +9,40 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="588.0" prefWidth="617.0" styleClass="transparent-pane" stylesheets="@../../../styles/regis-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.infogames.controllers.RegistrationsListTwoController">
+<AnchorPane prefHeight="539.0" prefWidth="583.0" styleClass="transparent-pane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.infogames.controllers.RegistrationsListTwoController">
 
     <children>
-        <ImageView fitHeight="582.0" fitWidth="586.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="582.0" fitWidth="586.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../image/registration_list_2/fon.png" />
             </image>
         </ImageView>
-        <Button fx:id="buttonClose" layoutX="539.0" layoutY="25.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" styleClass="close-butten">
+        <Button fx:id="buttonClose" layoutX="497.0" layoutY="60.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" styleClass="close-button">
             <graphic>
-                <ImageView fx:id="imageClose" fitHeight="66.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="imageClose" fitHeight="66.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view-button-close">
                     <image>
-                        <Image url="@../../../image/login/buttom-close.png" />
+                        <Image url="@../../../image/close_image/buttom-close.png" />
                     </image>
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="buttonBack" layoutX="37.0" layoutY="481.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="63.0" styleClass="close-butten">
+        <Button fx:id="buttonBack" layoutX="37.0" layoutY="423.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="63.0" styleClass="bottom-settings">
             <graphic>
-                <ImageView fx:id="imageBack" fitHeight="61.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="imageBack" fitHeight="61.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view-button-back">
                     <image>
-                        <Image url="@../../../image/registration_list_1/buttom-back.png" />
+                        <Image url="@../../../image/bottom_next_and_back/buttom-back.png" />
                     </image>
                 </ImageView>
             </graphic>
             <padding>
                 <Insets bottom="-5.0" left="-5.0" right="-5.0" top="-5.0" />
             </padding></Button>
-        <Label alignment="CENTER" layoutX="81.0" layoutY="111.0" prefHeight="80.0" prefWidth="425.0" styleClass="name-text" text="Придумай логин и пароль" />
-        <TextField fx:id="inputLogin" layoutX="195.0" layoutY="259.0" prefHeight="39.0" prefWidth="250.0" promptText="Логин" styleClass="text-field">
-            <opaqueInsets>
-                <Insets bottom="-5.0" left="-5.0" right="-5.0" top="-5.0" />
-            </opaqueInsets>
+        <Label alignment="CENTER" layoutX="81.0" layoutY="57.0" prefHeight="80.0" prefWidth="425.0" styleClass="name-text" text="Придумай логин и пароль" />
+        <TextField fx:id="inputLogin" layoutX="195.0" layoutY="205.0" prefHeight="39.0" prefWidth="250.0" promptText="Логин" styleClass="text-field">
         </TextField>
-        <TextField fx:id="inputPassword" layoutX="195.0" layoutY="350.0" prefHeight="39.0" prefWidth="250.0" promptText="Пароль" styleClass="text-field">
-            <opaqueInsets>
-                <Insets bottom="-5.0" left="-5.0" right="-5.0" top="-5.0" />
-            </opaqueInsets>
+        <TextField fx:id="inputPassword" layoutX="195.0" layoutY="296.0" prefHeight="39.0" prefWidth="250.0" promptText="Пароль" styleClass="text-field">
         </TextField>
-      <Button fx:id="buttonLogout" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="168.0" layoutY="493.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="250.0" styleClass="enter-butten" text="Войти">
+      <Button fx:id="buttonLogout" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="169.0" layoutY="430.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="250.0" styleClass="enter-butten" text="Войти">
          <graphic>
             <ImageView fx:id="imageLogout" fitHeight="46.0" fitWidth="277.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -57,5 +52,10 @@
          </graphic>
       </Button>
     </children>
+   <stylesheets>
+      <URL value="@../../../styles/regis-style.css" />
+      <URL value="@../../../styles/close-style.css" />
+      <URL value="@../../../styles/bottom-next-back-style.css" />
+   </stylesheets>
 
 </AnchorPane>
