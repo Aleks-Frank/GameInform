@@ -3,15 +3,6 @@
     src: url('../fonts/HankyBold/Hanky-Bold-ff.otf');
 }
 
-// кнопки
-.enter-butten {
-    -fx-font-family: 'Hanky Bold';
-    -fx-text-fill: black;
-    -fx-font-size: 30px;
-    -fx-background-color: transparent;
-    -fx-padding: 0;  /* Измените с -5 на 0 или уберите */
-}
-
 // название окна
 .name-text {
     -fx-font-family: 'Hanky Bold';
@@ -37,3 +28,34 @@
 .transparent-pane {
     -fx-background-color: transparent;
 }
+
+.error-text {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: red;
+    -fx-font-size: 20px;
+}
+
+.enter-butten {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: black;
+    -fx-font-size: 30px;
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.image-view-button-enter {
+    -fx-image: url('../image/registration_list_2/buttom-enter.png');
+}
+
+.enter-butten:hover .image-view-button-enter {
+    -fx-image: url('../image/registration_list_2/buttom-enter-hover.png');
+}
+
+.enter-butten:pressed .image-view-button-enter {
+    -fx-image: url('../image/registration_list_2/buttom-enter-pre.png');
+}
+
+.enter-butten:pressed .text {
+    -fx-translate-y: 3px;
+}
+

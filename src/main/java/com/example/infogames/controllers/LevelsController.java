@@ -1,5 +1,6 @@
 package com.example.infogames.controllers;
 
+import com.example.infogames.globalEntity.GlobalStudentUser;
 import com.example.infogames.listView.ListViews;
 import com.example.infogames.specialMethods.SwitchImage;
 import com.example.infogames.specialMethods.SwitchMethods;
@@ -108,22 +109,28 @@ public class LevelsController implements Initializable {
     @FXML
     private ImageView imageClose;
 
+    @FXML
+    private ImageView prefon;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SwitchMethods.closeWindow(buttonClose);
-        SwitchMethods.switchWindow(buttonBack, ListViews.LOGIN_VIEW);
-        SwitchMethods.switchSettings(buttonSettings, ListViews.SETTINGS_VIEW);
-        SwitchMethods.switchToWindowInfoTasks(buttonTaskOne, ListViews.TASK_INFO_VIEW, "WORD_1");
-        SwitchMethods.switchToWindowInfoTasks(buttonTaskTwo, ListViews.TASK_INFO_VIEW, "WORD_2");
-        SwitchMethods.switchToWindowInfoTasks(buttonTaskThree, ListViews.TASK_INFO_VIEW, "WORD_3");
-        SwitchMethods.switchToWindowInfoTasks(buttonTaskFour, ListViews.TASK_INFO_VIEW, "WORD_4");
-        SwitchMethods.switchToWindowInfoTasks(buttonTaskFive, ListViews.TASK_INFO_VIEW, "WORD_5");
-        SwitchMethods.switchToWindowInfoTasks(buttonTaskSix, ListViews.TASK_INFO_VIEW, "WORD_6");
-        SwitchMethods.switchToWindowInfoTasks(buttonTaskSeven, ListViews.TASK_INFO_VIEW, "WORD_7");
-        SwitchMethods.switchToWindowInfoTasks(buttonTaskEight, ListViews.TASK_INFO_VIEW, "WORD_8");
-        SwitchMethods.switchToWindowInfoTasks(buttonTaskNine, ListViews.TASK_INFO_VIEW, "WORD_9");
-        SwitchMethods.switchToWindowInfoTasks(buttonTaskTen, ListViews.TASK_INFO_VIEW, "WORD_10");
-        SwitchMethods.switchToWindowInfoTasks(buttonTaskEleven, ListViews.TASK_INFO_VIEW, "WORD_11");
-        SwitchMethods.switchToWindowInfoTasks(buttonTaskTwelve, ListViews.TASK_INFO_VIEW, "WORD_12");
+        SwitchMethods.logoutBottom(buttonBack);
+        SwitchMethods.switchSettings(buttonSettings, ListViews.SETTINGS_VIEW, prefon);
+        SwitchMethods.switchToWindowInfoTasks(buttonTaskOne, ListViews.TASK_INFO_VIEW, "WORD_1", prefon);
+        SwitchMethods.switchToWindowInfoTasks(buttonTaskTwo, ListViews.TASK_INFO_VIEW, "WORD_2", prefon);
+        SwitchMethods.switchToWindowInfoTasks(buttonTaskThree, ListViews.TASK_INFO_VIEW, "WORD_3", prefon);
+        SwitchMethods.switchToWindowInfoTasks(buttonTaskFour, ListViews.TASK_INFO_VIEW, "WORD_4", prefon);
+        SwitchMethods.switchToWindowInfoTasks(buttonTaskFive, ListViews.TASK_INFO_VIEW, "WORD_5", prefon);
+        SwitchMethods.switchToWindowInfoTasks(buttonTaskSix, ListViews.TASK_INFO_VIEW, "WORD_6", prefon);
+        SwitchMethods.switchToWindowInfoTasks(buttonTaskSeven, ListViews.TASK_INFO_VIEW, "WORD_7", prefon);
+        SwitchMethods.switchToWindowInfoTasks(buttonTaskEight, ListViews.TASK_INFO_VIEW, "WORD_8", prefon);
+        SwitchMethods.switchToWindowInfoTasks(buttonTaskNine, ListViews.TASK_INFO_VIEW, "WORD_9", prefon);
+        SwitchMethods.switchToWindowInfoTasks(buttonTaskTen, ListViews.TASK_INFO_VIEW, "WORD_10", prefon);
+        SwitchMethods.switchToWindowInfoTasks(buttonTaskEleven, ListViews.TASK_INFO_VIEW, "WORD_11", prefon);
+        SwitchMethods.switchToWindowInfoTasks(buttonTaskTwelve, ListViews.TASK_INFO_VIEW, "WORD_12", prefon);
+        countStars.setText(String.valueOf(GlobalStudentUser.getCountCoins()));
+        System.out.println(GlobalStudentUser.getCountCoins());
+        System.out.println(GlobalStudentUser.getFirstName());
     }
 }

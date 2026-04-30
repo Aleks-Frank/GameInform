@@ -1,7 +1,13 @@
 package com.example.infogames.specialMethods;
 
 import com.example.infogames.docxFileWorker.CreateAndOpenFileWord;
+import com.example.infogames.entity.StudentAuth;
+import com.example.infogames.entity.StudentLoginDTO;
+import com.example.infogames.globalEntity.GlobalJSONLogin;
+import com.example.infogames.globalEntity.GlobalJSONStudent;
+import com.example.infogames.globalEntity.GlobalStudentUser;
 import com.example.infogames.globalEntity.GlobalTask;
+import com.example.infogames.listView.ListMessage;
 import com.example.infogames.listView.ListViews;
 import com.example.infogames.workerDB.TasksRepository;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +15,9 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Screen;
@@ -16,6 +25,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class SwitchMethods {
 
@@ -45,15 +55,17 @@ public class SwitchMethods {
     }
 
     /**Метод для открытия настроек*/
-    public static void switchSettings(Button button, String path) {
+    public static void switchSettings(Button button, String path, ImageView prefon) {
         button.setOnAction(event -> {
             try {
-                FXMLLoader loader = new FXMLLoader(SwitchMethods.class.getResource(path));
+                prefon.setVisible(true);
+                FXMLLoader loader = new FXMLLoader(StageMethods.class.getResource(path));
                 Parent newRoot = loader.load();
                 Stage settingsStage = new Stage();
+
                 settingsStage.initOwner(StageMethods.getPrimaryStage());
-                settingsStage.initStyle(StageStyle.UNDECORATED);
-                settingsStage.initModality(Modality.WINDOW_MODAL);
+                settingsStage.initStyle(StageStyle.TRANSPARENT);
+
                 Scene scene = new Scene(newRoot);
                 scene.setFill(Color.TRANSPARENT);
                 settingsStage.setScene(scene);
@@ -61,10 +73,9 @@ public class SwitchMethods {
                 settingsStage.focusedProperty().addListener((obs, wasFocused, isNowFocused) -> {
                     if (!isNowFocused) {
                         settingsStage.close();
+                        prefon.setVisible(false);
                     }
                 });
-
-                settingsStage.initStyle(StageStyle.TRANSPARENT);
 
                 StageMethods.setSettingStage(settingsStage);
                 settingsStage.show();
@@ -82,10 +93,11 @@ public class SwitchMethods {
     }
 
     /**Метод для показа информации о задании*/
-    public static void switchToWindowInfoTasks(Button button, String path, String id){
+    public static void switchToWindowInfoTasks(Button button, String path, String id, ImageView prefon){
         button.setOnAction(event -> {
             try {
                 getTasksInfoForDB(id);
+                prefon.setVisible(true);
                 FXMLLoader loader = new FXMLLoader(StageMethods.class.getResource(path));
                 Parent newRoot = loader.load();
                 Stage infoTaskStage = new Stage();
@@ -100,6 +112,7 @@ public class SwitchMethods {
                 infoTaskStage.focusedProperty().addListener((obs, wasFocused, isNowFocused) -> {
                     if (!isNowFocused) {
                         infoTaskStage.close();
+                        prefon.setVisible(false);
                     }
                 });
 
@@ -228,5 +241,121 @@ public class SwitchMethods {
         }
     }
 
+    public static void switchWindowToSettings(Button button, String path){
+        button.setOnAction(event -> {
+            try {
+                StageMethods.getSettingStage().close();
+                FXMLLoader loader = new FXMLLoader(SwitchMethods.class.getResource(path));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                Stage stage = StageMethods.getPrimaryStage();
+                stage.setScene(scene);
+                stage.centerOnScreen();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public static void saveNewInfoStudent(Button button, Label labelError,
+                                          TextField name, TextField surname,
+                                          TextField classStudent, TextField school,
+                                          TextField login, TextField password) {
+        button.setOnAction(actionEvent -> {
+            if (classStudent.getText().trim().isEmpty() ||
+                    school.getText().trim().isEmpty() ||
+                    name.getText().trim().isEmpty() ||
+                    surname.getText().trim().isEmpty() ||
+                    password.getText().trim().isEmpty() ||
+                    login.getText().trim().isEmpty()) {
+
+                labelError.setText(ListMessage.formNotFull);
+                labelError.setVisible(true);
+            } else {
+                try {
+                    StudentAuth student = new StudentAuth(
+                            name.getText().trim(),
+                            surname.getText().trim(),
+                            Integer.parseInt(classStudent.getText().trim()),
+                            school.getText().trim(),
+                            login.getText().trim(),
+                            password.getText().trim()
+                    );
+                    if (GlobalStudentUser.globalStudent != null &&
+                            GlobalStudentUser.globalStudent.getId() != null) {
+                        student.setId(GlobalStudentUser.globalStudent.getId());
+                    } else {
+                        labelError.setText("Ошибка: ID пользователя не найден");
+                        labelError.setVisible(true);
+                        return;
+                    }
+
+                    SaveInfoMethods.sendJSON(student, labelError);
+
+                } catch (NumberFormatException e) {
+                    labelError.setText("Некорректный формат класса");
+                    labelError.setVisible(true);
+                } catch (Exception e) {
+                    labelError.setText("Ошибка: " + e.getMessage());
+                    labelError.setVisible(true);
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public static void logoutBottom(Button button){
+        button.setOnAction(event -> {
+            try {
+                GlobalStudentUser.setGlobalStudent(null);
+                GlobalJSONStudent.setGlobalEntityLSON(null);
+                FXMLLoader loader = new FXMLLoader(SwitchMethods.class.getResource(ListViews.LOGIN_VIEW));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                Stage stage = (Stage) button.getScene().getWindow();
+                stage.setScene(scene);
+                stage.centerOnScreen();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public static void logoutBottomToSettings(Button button){
+        button.setOnAction(event -> {
+            try {
+                GlobalStudentUser.setGlobalStudent(null);
+                GlobalJSONStudent.setGlobalEntityLSON(null);
+                StageMethods.getSettingStage().close();
+                FXMLLoader loader = new FXMLLoader(SwitchMethods.class.getResource(ListViews.LOGIN_VIEW));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                Stage stage = StageMethods.getPrimaryStage();
+                stage.setScene(scene);
+                stage.centerOnScreen();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public static void switchSettingsToScoreMenu(Button button){
+        button.setOnAction(actionEvent -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(SwitchMethods.class.getResource(ListViews.SCORES_VIEW));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                Stage stage = StageMethods.getSettingStage();
+                stage.setScene(scene);
+                stage.centerOnScreen();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
 }

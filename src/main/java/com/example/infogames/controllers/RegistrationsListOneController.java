@@ -1,11 +1,13 @@
 package com.example.infogames.controllers;
 
 import com.example.infogames.listView.ListViews;
+import com.example.infogames.specialMethods.LoadInfoMethods;
 import com.example.infogames.specialMethods.RegistrationMethods;
 import com.example.infogames.specialMethods.SwitchMethods;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
@@ -44,10 +46,14 @@ public class RegistrationsListOneController implements Initializable {
     @FXML
     private TextField inputSurname;
 
+    @FXML
+    private Label labelError;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SwitchMethods.closeWindow(buttonClose);
-        SwitchMethods.switchWindow(buttonBack, ListViews.LOGIN_VIEW);
-        RegistrationMethods.saveInfoToGlobalJSONStudent(buttonNext, ListViews.REGISTRATION_LIST_TWO_VIEW, inputClass, inputSchool, inputName, inputSurname);
+        SwitchMethods.logoutBottom(buttonBack);
+        RegistrationMethods.saveInfoToGlobalJSONStudent(buttonNext, ListViews.REGISTRATION_LIST_TWO_VIEW, inputClass, inputSchool, inputName, inputSurname, labelError);
+        LoadInfoMethods.loadTextField(inputName, inputSurname, inputClass, inputSchool);
     }
 }

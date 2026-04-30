@@ -1,0 +1,16 @@
+.settings-butten {
+    -fx-background-color: transparent;
+    -fx-padding: -5;
+}
+
+.image-view-button-settings {
+    -fx-image: url('../image/levels/button-settings.png');
+}
+
+.settings-butten:hover .image-view-button-settings {
+    -fx-image: url('../image/levels/button-settings-hover.png');
+}
+
+.settings-butten:pressed .image-view-button-settings {
+    -fx-image: url('../image/levels/button-settings-pre.png');
+}

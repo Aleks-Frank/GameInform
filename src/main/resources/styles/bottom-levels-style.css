@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Hanky Bold';
+    src: url('../fonts/HankyBold/Hanky-Bold-ff.otf');
+}
+
+.bottom-level{
+    -fx-background-color: transparent;
+    -fx-font-family: 'Hanky Bold';
+    -fx-font-size: 35px;
+    -fx-fill: black;
+}
+
+.image-view-button-level {
+    -fx-image: url('../image/levels/button-level.png');
+}
+
+.bottom-level:hover .image-view-button-level {
+    -fx-image: url('../image/levels/button-level-hover.png');
+}
+
+.bottom-level:pressed .image-view-button-level {
+    -fx-image: url('../image/levels/button-level-pre.png');
+}
+
+.bottom-level:pressed .text {
+    -fx-translate-y: 5px;
+}

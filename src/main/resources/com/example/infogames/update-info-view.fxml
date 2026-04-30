@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -8,74 +8,57 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="577.0" prefWidth="1030.0" styleClass="transparent-pane" stylesheets="@../../../styles/regis-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.infogames.controllers.UpdateInfoController">
+<AnchorPane prefHeight="530.0" prefWidth="988.0" styleClass="transparent-pane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.infogames.controllers.UpdateInfoController">
    <children>
-      <ImageView fitHeight="537.0" fitWidth="988.0" layoutY="40.0" pickOnBounds="true">
+      <ImageView fitHeight="537.0" fitWidth="988.0" pickOnBounds="true">
          <image>
             <Image url="@../../../image/update-info/fon.png" />
          </image>
       </ImageView>
-       <Button fx:id="buttonClose" layoutX="950.0" layoutY="14.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" styleClass="close-butten">
+       <Button fx:id="buttonClose" layoutX="865.0" layoutY="30.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" styleClass="close-button">
            <graphic>
-               <ImageView fx:id="imageClose" fitHeight="66.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fx:id="imageClose" fitHeight="76.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view-button-close">
                    <image>
-                       <Image url="@../../../image/login/buttom-close.png" />
+                       <Image url="@../../../image/close_image/buttom-close.png" />
                    </image></ImageView>
            </graphic>
-           <padding>
-               <Insets bottom="-5.0" left="-5.0" right="-5.0" top="-5.0" />
-           </padding>
        </Button>
-      <Button fx:id="buttonSave" contentDisplay="CENTER" layoutX="356.0" layoutY="461.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="277.0" styleClass="enter-butten" text="Сохранить">
+      <Button fx:id="buttonSave" contentDisplay="CENTER" layoutX="356.0" layoutY="421.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="277.0" styleClass="enter-butten" text="Сохранить">
          <graphic>
-            <ImageView fx:id="imageSave" fitHeight="75.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageSave" fitHeight="75.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view-button-enter">
                <image>
                   <Image url="@../../../image/update-info/buttom-save.png" />
                </image>
             </ImageView>
          </graphic>
-         <padding>
-            <Insets bottom="-5.0" left="-5.0" right="-5.0" top="-5.0" />
-         </padding>
       </Button>
-      <Button fx:id="buttonBack" layoutX="35.0" layoutY="464.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="66.0" styleClass="close-butten">
+      <Button fx:id="buttonBack" layoutX="35.0" layoutY="424.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="66.0" styleClass="bottom-settings">
          <graphic>
-            <ImageView fx:id="imageBack" fitHeight="62.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageBack" fitHeight="62.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view-button-back">
                <image>
                   <Image url="@../../../image/update-info/buttom-back.png" />
                </image>
             </ImageView>
          </graphic></Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="283.0" layoutY="80.0" prefHeight="66.0" prefWidth="423.0" styleClass="name-text" text="Расскажи про себя" />
-       <TextField fx:id="inputPassword" layoutX="581.0" layoutY="359.0" prefHeight="51.0" prefWidth="284.0" promptText="Пароль" styleClass="text-field">
-           <opaqueInsets>
-               <Insets bottom="-5.0" left="-5.0" right="-5.0" top="-5.0" />
-           </opaqueInsets>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="283.0" layoutY="40.0" prefHeight="66.0" prefWidth="423.0" styleClass="name-text" text="Расскажи про себя" />
+       <TextField fx:id="inputPassword" layoutX="581.0" layoutY="319.0" prefHeight="51.0" prefWidth="284.0" promptText="Новый пароль" styleClass="text-field">
        </TextField>
-      <TextField fx:id="inputSchool" layoutX="581.0" layoutY="276.0" prefHeight="51.0" prefWidth="284.0" promptText="Школа" styleClass="text-field">
-         <opaqueInsets>
-            <Insets bottom="-5.0" left="-5.0" right="-5.0" top="-5.0" />
-         </opaqueInsets>
+      <TextField fx:id="inputSchool" layoutX="581.0" layoutY="236.0" prefHeight="51.0" prefWidth="284.0" promptText="Школа" styleClass="text-field">
       </TextField>
-      <TextField fx:id="inputSurname" layoutX="581.0" layoutY="195.0" prefHeight="51.0" prefWidth="284.0" promptText="Фамилия" styleClass="text-field">
-         <opaqueInsets>
-            <Insets bottom="-5.0" left="-5.0" right="-5.0" top="-5.0" />
-         </opaqueInsets>
+      <TextField fx:id="inputSurname" layoutX="581.0" layoutY="155.0" prefHeight="51.0" prefWidth="284.0" promptText="Фамилия" styleClass="text-field">
       </TextField>
-      <TextField fx:id="inputLogin" layoutX="176.0" layoutY="358.0" prefHeight="51.0" prefWidth="284.0" promptText="Логин" styleClass="text-field">
-         <opaqueInsets>
-            <Insets bottom="-5.0" left="-5.0" right="-5.0" top="-5.0" />
-         </opaqueInsets>
+      <TextField fx:id="inputLogin" layoutX="176.0" layoutY="318.0" prefHeight="51.0" prefWidth="284.0" promptText="Логин" styleClass="text-field">
       </TextField>
-      <TextField fx:id="inputClass" layoutX="176.0" layoutY="275.0" prefHeight="51.0" prefWidth="284.0" promptText="Класс" styleClass="text-field">
-         <opaqueInsets>
-            <Insets bottom="-5.0" left="-5.0" right="-5.0" top="-5.0" />
-         </opaqueInsets>
+      <TextField fx:id="inputClass" layoutX="176.0" layoutY="235.0" prefHeight="51.0" prefWidth="284.0" promptText="Класс" styleClass="text-field">
       </TextField>
-      <TextField fx:id="inputName" layoutX="176.0" layoutY="194.0" prefHeight="51.0" prefWidth="284.0" promptText="Имя" styleClass="text-field">
-         <opaqueInsets>
-            <Insets bottom="-5.0" left="-5.0" right="-5.0" top="-5.0" />
-         </opaqueInsets>
+      <TextField fx:id="inputName" layoutX="176.0" layoutY="154.0" prefHeight="51.0" prefWidth="284.0" promptText="Имя" styleClass="text-field">
       </TextField>
+      <Label fx:id="labelError" alignment="CENTER" layoutX="206.0" layoutY="500.0" prefHeight="23.0" prefWidth="577.0" styleClass="error-text" />
    </children>
+   <stylesheets>
+      <URL value="@../../../styles/regis-style.css" />
+      <URL value="@../../../styles/close-style.css" />
+      <URL value="@../../../styles/buttom-save-style.css" />
+      <URL value="@../../../styles/bottom-next-back-style.css" />
+   </stylesheets>
 </AnchorPane>

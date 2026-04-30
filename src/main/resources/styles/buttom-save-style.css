@@ -1,0 +1,23 @@
+.enter-butten {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: black;
+    -fx-font-size: 30px;
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.image-view-button-enter {
+    -fx-image: url('../image/registration_list_2/buttom-enter.png');
+}
+
+.enter-butten:hover .image-view-button-enter {
+    -fx-image: url('../image/registration_list_2/buttom-enter-hover.png');
+}
+
+.enter-butten:pressed .image-view-button-enter {
+    -fx-image: url('../image/registration_list_2/buttom-enter-pre.png');
+}
+
+.enter-butten:pressed .text {
+    -fx-translate-y: 3px;
+}

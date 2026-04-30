@@ -1,0 +1,64 @@
+.button-setting {
+    -fx-background-color: transparent;
+    -fx-padding: -5;
+}
+
+.image-view-button-edit {
+    -fx-image: url('../image/settings/bottum-edit.png');
+}
+
+.button-setting:hover .image-view-button-edit {
+    -fx-image: url('../image/settings/bottum-edit-hover.png');
+}
+
+.button-setting:pressed .image-view-button-edit {
+    -fx-image: url('../image/settings/bottum-edit-pre.png');
+}
+
+.image-view-button-info {
+    -fx-image: url('../image/settings/bottum-info.png');
+}
+
+.button-setting:hover .image-view-button-info {
+    -fx-image: url('../image/settings/bottum-info-hover.png');
+}
+
+.button-setting:pressed .image-view-button-info {
+    -fx-image: url('../image/settings/bottum-info-pre.png');
+}
+
+.image-view-button-logout {
+    -fx-image: url('../image/settings/bottum-logout.png');
+}
+
+.button-setting:hover .image-view-button-logout {
+    -fx-image: url('../image/settings/bottum-logout-hover.png');
+}
+
+.button-setting:pressed .image-view-button-logout {
+    -fx-image: url('../image/settings/bottum-logout-pre.png');
+}
+
+.image-view-button-mute {
+    -fx-image: url('../image/settings/bottum-mute.png');
+}
+
+.button-setting:hover .image-view-button-mute {
+    -fx-image: url('../image/settings/bottum-mute-hover.png');
+}
+
+.button-setting:pressed .image-view-button-mute {
+    -fx-image: url('../image/settings/bottum-mute-pre.png');
+}
+
+.image-view-button-sound {
+    -fx-image: url('../image/settings/bottum-sound.png');
+}
+
+.button-setting:hover .image-view-button-sound {
+    -fx-image: url('../image/settings/bottum-sound-hover.png');
+}
+
+.button-setting:pressed .image-view-button-sound {
+    -fx-image: url('../image/settings/bottum-sound-pre.png');
+}

@@ -1,5 +1,6 @@
 package com.example.infogames.controllers;
 
+import com.example.infogames.audioWorker.ButtomAudio;
 import com.example.infogames.listView.ListViews;
 import com.example.infogames.specialMethods.SwitchMethods;
 import javafx.fxml.FXML;
@@ -41,6 +42,9 @@ public class SettingsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SwitchMethods.switchFromSettingsToTheWindow(buttonClose);
+        SwitchMethods.switchWindowToSettings(buttonEdit, ListViews.UPDATE_INFO_VIEW);
+        SwitchMethods.logoutBottomToSettings(buttonLogout);
+        SwitchMethods.switchSettingsToScoreMenu(buttonInfo);
+        ButtomAudio.setAudioSettings(buttonSound, imageSound);
     }
 }

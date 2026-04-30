@@ -1,9 +1,10 @@
 package com.example.infogames.globalEntity;
 
-import com.example.infogames.entity.Student;
+import com.example.infogames.entity.StudentAuth;
+import com.example.infogames.entity.StudentLoginDTO;
 
 public class GlobalStudentUser {
-    public static Student globalStudent = new Student("Oleg", "Legkin", "stud", 0, " ", "olegLeg", "12345678");
+    public static StudentAuth globalStudent = new StudentAuth();
 
     public static String getFirstName(){
         return globalStudent.getFirstName();
@@ -20,4 +21,9 @@ public class GlobalStudentUser {
     public static int getCountCoins(){
         return globalStudent.getCountCoins();
     }
+
+    public static void setGlobalStudent(StudentAuth globalStudent) {
+        GlobalStudentUser.globalStudent = globalStudent;
+    }
+
 }

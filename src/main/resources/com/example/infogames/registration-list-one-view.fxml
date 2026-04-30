@@ -50,6 +50,7 @@
       </TextField>
       <TextField fx:id="inputSchool" layoutX="195.0" layoutY="346.0" prefHeight="39.0" prefWidth="250.0" promptText="Школа" styleClass="text-field">
       </TextField>
+      <Label fx:id="labelError" alignment="CENTER" layoutX="119.0" layoutY="435.0" prefHeight="37.0" prefWidth="348.0" styleClass="error-text" />
    </children>
    <stylesheets>
       <URL value="@../../../styles/regis-style.css" />

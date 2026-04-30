@@ -44,13 +44,14 @@
         </TextField>
       <Button fx:id="buttonLogout" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="169.0" layoutY="430.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="250.0" styleClass="enter-butten" text="Войти">
          <graphic>
-            <ImageView fx:id="imageLogout" fitHeight="46.0" fitWidth="277.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageLogout" fitHeight="46.0" fitWidth="277.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view-button-enter">
                <image>
                   <Image url="@../../../image/registration_list_2/buttom-enter.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
+      <Label fx:id="labelError" alignment="CENTER" layoutX="136.0" layoutY="377.0" prefHeight="39.0" prefWidth="316.0" styleClass="error-text" />
     </children>
    <stylesheets>
       <URL value="@../../../styles/regis-style.css" />

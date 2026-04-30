@@ -22,6 +22,12 @@
     -fx-font-size: 20px;
 }
 
+.error-text {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: red;
+    -fx-font-size: 20px;
+}
+
 .text-input {
     -fx-font-family: 'Hanky Bold';
     -fx-background-color: transparent;
@@ -68,5 +74,9 @@
 
 .button-enter:pressed .image-view-button-register {
     -fx-image: url('../image/login/buttom-regis-pre.png');
+}
+
+.button-enter:pressed .text {
+    -fx-translate-y: 3px;
 }
 

@@ -1,6 +1,7 @@
 package com.example.infogames.controllers;
 
 import com.example.infogames.listView.ListViews;
+import com.example.infogames.specialMethods.LoginMethods;
 import com.example.infogames.specialMethods.SwitchMethods;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -43,8 +44,10 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        labelError.setVisible(false);
         SwitchMethods.closeWindow(buttonClose);
-        SwitchMethods.switchWindow(buttonEnter, ListViews.LEVELS_VIEW);
+//        SwitchMethods.switchWindow(buttonEnter, ListViews.LEVELS_VIEW);
         SwitchMethods.switchWindow(buttonRegister, ListViews.REGISTRATION_LIST_ONE_VIEW);
+        LoginMethods.saveInfoToLogin(buttonEnter, ListViews.LEVELS_VIEW, inputLogin, inputPassword, labelError);
     }
 }

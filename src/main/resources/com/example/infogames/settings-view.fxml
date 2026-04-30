@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -9,24 +10,15 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="410.0" prefWidth="338.0" styleClass="transparent-pane" stylesheets="@../../../styles/settings-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.infogames.controllers.SettingsController">
+<AnchorPane prefHeight="377.0" prefWidth="303.0" styleClass="transparent-pane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.infogames.controllers.SettingsController">
     <children>
-        <ImageView fitHeight="380.0" fitWidth="308.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="380.0" fitWidth="308.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../image/settings/fon.png" />
             </image>
         </ImageView>
-        <Button fx:id="buttonClose" layoutX="280.0" layoutY="14.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="34.0" styleClass="close-butten">
-            <graphic>
-                <ImageView fx:id="imageClose" fitHeight="54.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../../image/login/buttom-close.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-        </Button>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="58.0" prefHeight="44.0" prefWidth="206.0" styleClass="name-text" text="Настройки" />
-      <GridPane layoutX="54.0" layoutY="142.0" prefHeight="198.0" prefWidth="200.0">
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="28.0" prefHeight="44.0" prefWidth="206.0" styleClass="name-text" text="Настройки" />
+      <GridPane layoutX="54.0" layoutY="112.0" prefHeight="198.0" prefWidth="200.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -36,36 +28,36 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="buttonEdit" mnemonicParsing="false" prefHeight="93.0" prefWidth="84.0" styleClass="close-butten" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="buttonEdit" mnemonicParsing="false" prefHeight="93.0" prefWidth="84.0" styleClass="button-setting" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <graphic>
-                  <ImageView fx:id="imageClose" fitHeight="93.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageClose" fitHeight="93.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view-button-edit">
                      <image>
                         <Image url="@../../../image/settings/bottum-edit.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="buttonSound" mnemonicParsing="false" prefHeight="93.0" prefWidth="84.0" styleClass="close-butten" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="buttonSound" mnemonicParsing="false" prefHeight="93.0" prefWidth="84.0" styleClass="button-setting" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <graphic>
-                  <ImageView fx:id="imageSound" fitHeight="93.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageSound" fitHeight="93.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view-button-sound">
                      <image>
                         <Image url="@../../../image/settings/bottum-sound.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="buttonInfo" mnemonicParsing="false" prefHeight="93.0" prefWidth="84.0" styleClass="close-butten" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="buttonInfo" mnemonicParsing="false" prefHeight="93.0" prefWidth="84.0" styleClass="button-setting" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <graphic>
-                  <ImageView fx:id="imageInfo" fitHeight="93.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageInfo" fitHeight="93.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view-button-info">
                      <image>
                         <Image url="@../../../image/settings/bottum-info.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="buttonLogout" mnemonicParsing="false" prefHeight="93.0" prefWidth="84.0" styleClass="close-butten" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="buttonLogout" mnemonicParsing="false" prefHeight="93.0" prefWidth="84.0" styleClass="button-setting" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <graphic>
-                  <ImageView fx:id="imageLogout" fitHeight="93.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageLogout" fitHeight="93.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view-button-logout">
                      <image>
                         <Image url="@../../../image/settings/bottum-logout.png" />
                      </image>
@@ -75,4 +67,9 @@
          </children>
       </GridPane>
     </children>
+   <stylesheets>
+      <URL value="@../../../styles/settings-style.css" />
+      <URL value="@../../../styles/close-style.css" />
+      <URL value="@../../../styles/button-settings-image-style.css" />
+   </stylesheets>
 </AnchorPane>

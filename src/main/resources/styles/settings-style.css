@@ -3,12 +3,6 @@
     src: url('../fonts/HankyBold/Hanky-Bold-ff.otf');
 }
 
-// кнопки
-.close-butten {
-    -fx-background-color: transparent;
-    -fx-padding: -5;
-}
-
 // название окна
 .name-text {
     -fx-font-family: 'Hanky Bold';
