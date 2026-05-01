@@ -1,5 +1,6 @@
 package com.example.infogames.specialMethods;
 
+import com.example.infogames.audioWorker.SoundWorker;
 import com.example.infogames.docxFileWorker.CreateAndOpenFileWord;
 import com.example.infogames.entity.StudentAuth;
 import com.example.infogames.entity.StudentLoginDTO;
@@ -158,7 +159,6 @@ public class SwitchMethods {
             Stage infoTaskStage = new Stage();
             infoTaskStage.setAlwaysOnTop(true);
             infoTaskStage.initOwner(StageMethods.getPrimaryStage());
-            infoTaskStage.initStyle(StageStyle.UNDECORATED);
             infoTaskStage.initModality(Modality.WINDOW_MODAL);
             Scene scene = new Scene(newRoot);
             scene.setFill(Color.TRANSPARENT);
@@ -190,7 +190,6 @@ public class SwitchMethods {
             currectStage.setY(y);
             currectStage.setResizable(false);
             currectStage.initOwner(StageMethods.getPrimaryStage());
-            currectStage.initStyle(StageStyle.UNDECORATED);
             currectStage.initModality(Modality.WINDOW_MODAL);
             Scene newScene = new Scene(newRoot);
             newScene.setFill(Color.TRANSPARENT);
@@ -221,7 +220,6 @@ public class SwitchMethods {
             resultStage.setY(y);
             resultStage.setResizable(false);
             resultStage.initOwner(StageMethods.getPrimaryStage());
-            resultStage.initStyle(StageStyle.UNDECORATED);
             resultStage.initModality(Modality.WINDOW_MODAL);
             Scene newScene = new Scene(newRoot);
             newScene.setFill(Color.TRANSPARENT);
@@ -272,6 +270,7 @@ public class SwitchMethods {
 
                 labelError.setText(ListMessage.formNotFull);
                 labelError.setVisible(true);
+                SoundWorker.soundsError();
             } else {
                 try {
                     StudentAuth student = new StudentAuth(
@@ -288,6 +287,7 @@ public class SwitchMethods {
                     } else {
                         labelError.setText("Ошибка: ID пользователя не найден");
                         labelError.setVisible(true);
+                        SoundWorker.soundsError();
                         return;
                     }
 
@@ -296,9 +296,11 @@ public class SwitchMethods {
                 } catch (NumberFormatException e) {
                     labelError.setText("Некорректный формат класса");
                     labelError.setVisible(true);
+                    SoundWorker.soundsError();
                 } catch (Exception e) {
                     labelError.setText("Ошибка: " + e.getMessage());
                     labelError.setVisible(true);
+                    SoundWorker.soundsError();
                     e.printStackTrace();
                 }
             }

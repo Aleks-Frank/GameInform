@@ -1,5 +1,6 @@
 package com.example.infogames.controllers;
 
+import com.example.infogames.audioWorker.SoundWorker;
 import com.example.infogames.specialMethods.SwitchMethods;
 import com.example.infogames.specialMethods.TasksMethods;
 import javafx.fxml.FXML;
@@ -32,5 +33,6 @@ public class TaskInfoController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         TasksMethods.setTasksInfo(lavelNumber, lavelName, countStars);
         SwitchMethods.openWordFileOnButton(buttonNext);
+        SoundWorker.addSounds(buttonNext);
     }
 }

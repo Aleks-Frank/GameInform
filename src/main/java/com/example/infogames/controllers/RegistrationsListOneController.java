@@ -1,5 +1,6 @@
 package com.example.infogames.controllers;
 
+import com.example.infogames.audioWorker.SoundWorker;
 import com.example.infogames.listView.ListViews;
 import com.example.infogames.specialMethods.LoadInfoMethods;
 import com.example.infogames.specialMethods.RegistrationMethods;
@@ -55,5 +56,8 @@ public class RegistrationsListOneController implements Initializable {
         SwitchMethods.logoutBottom(buttonBack);
         RegistrationMethods.saveInfoToGlobalJSONStudent(buttonNext, ListViews.REGISTRATION_LIST_TWO_VIEW, inputClass, inputSchool, inputName, inputSurname, labelError);
         LoadInfoMethods.loadTextField(inputName, inputSurname, inputClass, inputSchool);
+        SoundWorker.addSoundsLogin(buttonNext);
+        SoundWorker.addSounds(buttonBack);
+        SoundWorker.addSounds(buttonClose);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.infogames.controllers;
 
+import com.example.infogames.audioWorker.SoundWorker;
 import com.example.infogames.listView.ListViews;
 import com.example.infogames.specialMethods.LoadInfoMethods;
 import com.example.infogames.specialMethods.SaveInfoMethods;
@@ -61,5 +62,8 @@ public class UpdateInfoController implements Initializable {
         LoadInfoMethods.loadTextFieldForEditForm(inputName, inputSurname, inputClass, inputSchool, inputLogin);
         SwitchMethods.switchWindow(buttonBack, ListViews.LEVELS_VIEW);
         SwitchMethods.saveNewInfoStudent(buttonSave, labelError, inputName, inputSurname, inputClass, inputSchool, inputLogin, inputPassword);
+        SoundWorker.addSounds(buttonClose);
+        SoundWorker.addSounds(buttonBack);
+        SoundWorker.addSoundsLogin(buttonSave);
     }
 }

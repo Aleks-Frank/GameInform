@@ -1,5 +1,6 @@
 package com.example.infogames.controllers;
 
+import com.example.infogames.audioWorker.SoundWorker;
 import com.example.infogames.listView.ListViews;
 import com.example.infogames.specialMethods.LoginMethods;
 import com.example.infogames.specialMethods.SwitchMethods;
@@ -49,5 +50,8 @@ public class LoginController implements Initializable {
 //        SwitchMethods.switchWindow(buttonEnter, ListViews.LEVELS_VIEW);
         SwitchMethods.switchWindow(buttonRegister, ListViews.REGISTRATION_LIST_ONE_VIEW);
         LoginMethods.saveInfoToLogin(buttonEnter, ListViews.LEVELS_VIEW, inputLogin, inputPassword, labelError);
+        SoundWorker.addSoundsLogin(buttonEnter);
+        SoundWorker.addSounds(buttonRegister);
+        SoundWorker.addSounds(buttonClose);
     }
 }

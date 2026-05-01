@@ -1,6 +1,8 @@
 package com.example.infogames.controllers;
 
 import com.example.infogames.audioWorker.ButtomAudio;
+import com.example.infogames.audioWorker.SoundManager;
+import com.example.infogames.audioWorker.SoundWorker;
 import com.example.infogames.listView.ListViews;
 import com.example.infogames.specialMethods.SwitchMethods;
 import javafx.fxml.FXML;
@@ -46,5 +48,9 @@ public class SettingsController implements Initializable {
         SwitchMethods.logoutBottomToSettings(buttonLogout);
         SwitchMethods.switchSettingsToScoreMenu(buttonInfo);
         ButtomAudio.setAudioSettings(buttonSound, imageSound);
+        SoundWorker.addSounds(buttonInfo);
+        SoundWorker.addSounds(buttonEdit);
+        SoundWorker.addSounds(buttonSound);
+        SoundWorker.addSounds(buttonLogout);
     }
 }

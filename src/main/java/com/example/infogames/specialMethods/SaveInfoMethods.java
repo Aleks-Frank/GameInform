@@ -1,5 +1,6 @@
 package com.example.infogames.specialMethods;
 
+import com.example.infogames.audioWorker.SoundWorker;
 import com.example.infogames.entity.StudentAuth;
 import com.example.infogames.entity.StudentLoginDTO;
 import com.example.infogames.globalEntity.GlobalStudentUser;
@@ -23,13 +24,16 @@ public class SaveInfoMethods {
                 GlobalStudentUser.setGlobalStudent(student);
                 labelError.setText(ListMessage.infoUpdate);
                 labelError.setVisible(true);
+                SoundWorker.soundsEnter();
             } else {
                 labelError.setText(ListMessage.infoNotUpdate);
                 labelError.setVisible(true);
+                SoundWorker.soundsError();
             }
         } catch (ResourceAccessException e) {
             labelError.setText(ListMessage.serverIsNotAnswer);
             labelError.setVisible(true);
+            SoundWorker.soundsError();
         }
     }
 }

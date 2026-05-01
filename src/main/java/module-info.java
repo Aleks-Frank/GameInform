@@ -10,6 +10,7 @@ module com.example.infogames {
     requires spring.web;
     requires spring.beans;
     requires com.fasterxml.jackson.annotation;
+    requires javafx.media;
 
     // Открываем все пакеты с entity для Jackson
     opens com.example.infogames.entity to

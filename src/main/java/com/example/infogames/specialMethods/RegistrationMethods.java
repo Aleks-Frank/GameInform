@@ -1,5 +1,7 @@
 package com.example.infogames.specialMethods;
 
+import com.example.infogames.audioWorker.SoundWorker;
+import com.example.infogames.entity.StudentLoginDTO;
 import com.example.infogames.globalEntity.GlobalJSONStudent;
 import com.example.infogames.listView.ListMessage;
 import javafx.fxml.FXMLLoader;
@@ -21,18 +23,22 @@ public class RegistrationMethods {
                                                    TextField inputSurname,
                                                    Label labelError){
         button.setOnAction( event -> {
+            if (GlobalJSONStudent.globalEntityLSON == null) {
+                GlobalJSONStudent.globalEntityLSON = new StudentLoginDTO();
+            }
             if(Objects.equals(inputClass.getText(), "") ||
                     Objects.equals(inputSchool.getText(), "") ||
                     Objects.equals(inputName.getText(), "") ||
                     Objects.equals(inputSurname.getText(), "")) {
                 labelError.setText(ListMessage.formNotFull);
+                SoundWorker.soundsError();
             } else {
                 GlobalJSONStudent.globalEntityLSON.setFirstName(inputName.getText().trim());
                 GlobalJSONStudent.globalEntityLSON.setLastName(inputSurname.getText().trim());
                 GlobalJSONStudent.globalEntityLSON.setStudentNumber(Integer.parseInt(inputClass.getText().trim()));
                 GlobalJSONStudent.globalEntityLSON.setSchool(inputSchool.getText().trim());
                 GlobalJSONStudent.globalEntityLSON.setRole("student");
-
+                SoundWorker.soundsClick();
                 try{
                     FXMLLoader loader = new FXMLLoader(SwitchMethods.class.getResource(path));
                     Parent root = loader.load();
@@ -57,6 +63,7 @@ public class RegistrationMethods {
         button.setOnAction( event -> {
             if(Objects.equals(inputPassword.getText(), "") || Objects.equals(inputLogin.getText(), "")) {
                 labelError.setText(ListMessage.formNotFull);
+                SoundWorker.soundsError();
             } else {
                 GlobalJSONStudent.globalEntityLSON.setPassword(inputPassword.getText().trim());
                 GlobalJSONStudent.globalEntityLSON.setLogin(inputLogin.getText().trim());

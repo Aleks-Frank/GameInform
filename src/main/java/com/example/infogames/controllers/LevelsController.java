@@ -1,5 +1,6 @@
 package com.example.infogames.controllers;
 
+import com.example.infogames.audioWorker.SoundWorker;
 import com.example.infogames.globalEntity.GlobalStudentUser;
 import com.example.infogames.listView.ListViews;
 import com.example.infogames.specialMethods.SwitchImage;
@@ -130,6 +131,21 @@ public class LevelsController implements Initializable {
         SwitchMethods.switchToWindowInfoTasks(buttonTaskEleven, ListViews.TASK_INFO_VIEW, "WORD_11", prefon);
         SwitchMethods.switchToWindowInfoTasks(buttonTaskTwelve, ListViews.TASK_INFO_VIEW, "WORD_12", prefon);
         countStars.setText(String.valueOf(GlobalStudentUser.getCountCoins()));
+        SoundWorker.addSounds(buttonTaskOne);
+        SoundWorker.addSounds(buttonTaskTwo);
+        SoundWorker.addSounds(buttonTaskThree);
+        SoundWorker.addSounds(buttonTaskFour);
+        SoundWorker.addSounds(buttonTaskFive);
+        SoundWorker.addSounds(buttonTaskSix);
+        SoundWorker.addSounds(buttonTaskSeven);
+        SoundWorker.addSounds(buttonTaskEight);
+        SoundWorker.addSounds(buttonTaskNine);
+        SoundWorker.addSounds(buttonTaskTen);
+        SoundWorker.addSounds(buttonTaskEleven);
+        SoundWorker.addSounds(buttonTaskTwelve);
+        SoundWorker.addSounds(buttonSettings);
+        SoundWorker.addSounds(buttonBack);
+        SoundWorker.addSounds(buttonClose);
         System.out.println(GlobalStudentUser.getCountCoins());
         System.out.println(GlobalStudentUser.getFirstName());
     }

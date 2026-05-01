@@ -1,5 +1,6 @@
 package com.example.infogames.globalEntity;
 
+import com.example.infogames.audioWorker.SoundWorker;
 import com.example.infogames.entity.LoginJSONRequest;
 import com.example.infogames.entity.StudentAuth;
 import com.example.infogames.entity.StudentLoginDTO;
@@ -30,6 +31,7 @@ public class GlobalJSONLogin {
             StudentAuth student = response.getBody();
             if(student != null) {
                 GlobalStudentUser.setGlobalStudent(student);
+                SoundWorker.soundsEnter();
                 try {
                     FXMLLoader loader = new FXMLLoader(SwitchMethods.class.getResource(path));
                     Parent root = loader.load();
@@ -44,10 +46,12 @@ public class GlobalJSONLogin {
             } else {
                 labelError.setText(ListMessage.studentNotFound);
                 labelError.setVisible(true);
+                SoundWorker.soundsError();
             }
         } catch (ResourceAccessException e) {
             labelError.setText(ListMessage.serverIsNotAnswer);
             labelError.setVisible(true);
+            SoundWorker.soundsError();
         }
     }
 }

@@ -30,15 +30,6 @@
     -fx-font-size: 24px;
 }
 
-// кнопки
-.next-butten {
-    -fx-font-family: 'Hanky Bold';
-    -fx-text-fill: black;
-    -fx-font-size: 25px;
-    -fx-background-color: transparent;
-    -fx-padding: -5;
-}
-
 // количество звезд
 .count-stars {
     -fx-font-family: 'Hanky Bold';
@@ -50,4 +41,32 @@
 .back-butten {
     -fx-background-color: transparent;
     -fx-padding: -5;
+}
+
+.next-butten {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: black;
+    -fx-font-size: 25px;
+    -fx-background-color: transparent;
+    -fx-padding: -5;
+}
+
+.next-butten .text {
+    -fx-translate-y: -3px;
+}
+
+.image-view-button-next {
+    -fx-image: url('../image/checker/buttom-enter.png');
+}
+
+.next-butten:hover .image-view-button-next {
+    -fx-image: url('../image/checker/buttom-enter-hover.png');
+}
+
+.next-butten:pressed .image-view-button-next {
+    -fx-image: url('../image/checker/buttom-enter-pre.png');
+}
+
+.next-butten:pressed .text {
+    -fx-translate-y: 0px;
 }

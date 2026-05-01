@@ -1,5 +1,6 @@
 package com.example.infogames.specialMethods;
 
+import com.example.infogames.audioWorker.SoundWorker;
 import com.example.infogames.globalEntity.GlobalJSONLogin;
 import com.example.infogames.listView.ListMessage;
 import javafx.scene.control.Button;
@@ -17,6 +18,7 @@ public class LoginMethods {
             if(Objects.equals(inputLogin.getText(), "") || Objects.equals(inputPassword.getText(), "")){
                 labelError.setText(ListMessage.formNotFull);
                 labelError.setVisible(true);
+                SoundWorker.soundsError();
             } else {
                 GlobalJSONLogin.globalLogin.setLogin(inputLogin.getText());
                 GlobalJSONLogin.globalLogin.setPassword(inputPassword.getText());

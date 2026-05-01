@@ -16,17 +16,26 @@ public class ButtomAudio {
     }
 
     public static void setAudioSettings(Button button, ImageView image){
+        updateButtonStyle(image);
         button.setOnAction(actionEvent -> {
             if(isSoundWork == true){
-                image.getStyleClass().add("image-view-button-mute");
-                image.getStyleClass().remove("image-view-button-sound");
                 isSoundWork = false;
+                updateButtonStyle(image);
             } else {
-                image.getStyleClass().add("image-view-button-sound");
-                image.getStyleClass().remove("image-view-button-mute");
                 isSoundWork = true;
+                updateButtonStyle(image);
             }
         });
+    }
+
+    private static void updateButtonStyle(ImageView image) {
+        image.getStyleClass().removeAll("image-view-button-sound", "image-view-button-mute");
+
+        if (isSoundWork) {
+            image.getStyleClass().add("image-view-button-sound");
+        } else {
+            image.getStyleClass().add("image-view-button-mute");
+        }
     }
 
 }
