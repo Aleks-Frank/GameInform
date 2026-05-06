@@ -9,6 +9,8 @@ public class StageMethods {
 
     private static Stage infoTasksSave;
 
+    private static Stage taskStage;
+
     private static Stage currectSaveStage;
 
     private static Stage resultSaveStage;
@@ -91,5 +93,13 @@ public class StageMethods {
 
     public static void setFailGameEnterSaveStage(Stage failGameEnterSaveStage) {
         StageMethods.failGameEnterSaveStage = failGameEnterSaveStage;
+    }
+
+    public static Stage getTaskStage() {
+        return taskStage;
+    }
+
+    public static void setTaskStage(Stage taskStage) {
+        StageMethods.taskStage = taskStage;
     }
 }

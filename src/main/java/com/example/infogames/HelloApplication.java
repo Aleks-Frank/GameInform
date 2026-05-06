@@ -2,6 +2,7 @@ package com.example.infogames;
 
 import com.example.infogames.listView.ListViews;
 import com.example.infogames.specialMethods.StageMethods;
+import com.example.infogames.specialMethods.SwitchMethods;
 import com.example.infogames.workerDB.TasksRepository;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

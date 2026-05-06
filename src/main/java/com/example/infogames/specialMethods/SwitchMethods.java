@@ -1,6 +1,7 @@
 package com.example.infogames.specialMethods;
 
 import com.example.infogames.audioWorker.SoundWorker;
+import com.example.infogames.controllers.LevelsController;
 import com.example.infogames.docxFileWorker.CreateAndOpenFileWord;
 import com.example.infogames.entity.StudentAuth;
 import com.example.infogames.entity.StudentLoginDTO;
@@ -146,6 +147,7 @@ public class SwitchMethods {
             if (StageMethods.getSettingStage() != null && StageMethods.getSettingStage() .isShowing()){
                 StageMethods.getSettingStage().close();
             }
+            StageMethods.getPrimaryStage().hide();
             showTasksInfo();
             openWindowCorrect();
             openWindowResultTask();
@@ -158,14 +160,12 @@ public class SwitchMethods {
             Parent newRoot = loader.load();
             Stage infoTaskStage = new Stage();
             infoTaskStage.setAlwaysOnTop(true);
-            infoTaskStage.initOwner(StageMethods.getPrimaryStage());
-            infoTaskStage.initModality(Modality.WINDOW_MODAL);
             Scene scene = new Scene(newRoot);
             scene.setFill(Color.TRANSPARENT);
             infoTaskStage.setScene(scene);
             infoTaskStage.initStyle(StageStyle.TRANSPARENT);
 
-            StageMethods.setInfoTasksSave(infoTaskStage);
+            StageMethods.setTaskStage(infoTaskStage);
             infoTaskStage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -196,7 +196,6 @@ public class SwitchMethods {
             currectStage.setScene(newScene);
             currectStage.initStyle(StageStyle.TRANSPARENT);
             StageMethods.setCurrectSaveStage(currectStage);
-            StageMethods.getPrimaryStage().hide();
             currectStage.show();
         }catch (Exception e){
             throw new RuntimeException(e);
@@ -226,7 +225,6 @@ public class SwitchMethods {
             resultStage.setScene(newScene);
             resultStage.initStyle(StageStyle.TRANSPARENT);
 
-            // Можно отцентрировать окно по левому краю после того, как оно загрузится
             resultStage.setOnShown(e -> {
                 double actualWidth = resultStage.getWidth();
                 resultStage.setX(x); // Фиксированный отступ
@@ -253,6 +251,28 @@ public class SwitchMethods {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        });
+    }
+
+    public static void closeGameMode(Button button){
+        button.setOnAction(actionEvent -> {
+            StageMethods.getCurrectSaveStage().hide();
+            StageMethods.getResultSaveStage().hide();
+            StageMethods.getTaskStage().hide();
+
+            LevelsController levelsController = LevelsController.getInstance();
+            if (levelsController != null) {
+                int currentStars = GlobalStudentUser.globalStudent.getCountCoins();
+                levelsController.updateStarsCount(currentStars);
+            }
+
+            StageMethods.getPrimaryStage().show();
+        });
+    }
+
+    public static void openTasksStage(Button button){
+        button.setOnAction(actionEvent -> {
+            StageMethods.getTaskStage().show();
         });
     }
 

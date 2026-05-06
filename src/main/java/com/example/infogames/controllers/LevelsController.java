@@ -113,8 +113,21 @@ public class LevelsController implements Initializable {
     @FXML
     private ImageView prefon;
 
+    private static LevelsController instance;
+
+    public static LevelsController getInstance() {
+        return instance;
+    }
+
+    public void updateStarsCount(int stars) {
+        if (countStars != null) {
+            countStars.setText(String.valueOf(stars));
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        instance = this;
         SwitchMethods.closeWindow(buttonClose);
         SwitchMethods.logoutBottom(buttonBack);
         SwitchMethods.switchSettings(buttonSettings, ListViews.SETTINGS_VIEW, prefon);
