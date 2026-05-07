@@ -21,7 +21,7 @@ public class StageMethods {
 
     private static Stage settingStageGame;
 
-    private static Stage failGameEnterSaveStage;
+    private static Stage errorStage;
 
     public static Stage getPrimaryStage() {
         return primaryStage;
@@ -87,12 +87,12 @@ public class StageMethods {
         StageMethods.settingStageGame = settingStageGame;
     }
 
-    public static Stage getFailGameEnterSaveStage() {
-        return failGameEnterSaveStage;
+    public static Stage getErrorStage() {
+        return errorStage;
     }
 
-    public static void setFailGameEnterSaveStage(Stage failGameEnterSaveStage) {
-        StageMethods.failGameEnterSaveStage = failGameEnterSaveStage;
+    public static void setErrorStage(Stage errorStage) {
+        StageMethods.errorStage = errorStage;
     }
 
     public static Stage getTaskStage() {

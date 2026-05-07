@@ -1,6 +1,7 @@
 package com.example.infogames.controllers;
 
 import com.example.infogames.audioWorker.SoundWorker;
+import com.example.infogames.checkerMethods.CheckerMethods;
 import com.example.infogames.specialMethods.SwitchMethods;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,5 +29,6 @@ public class CheckerController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SwitchMethods.openTasksStage(buttonShowTask);
         SoundWorker.addSounds(buttonShowTask);
+        CheckerMethods.checkFile(buttonChecker);
     }
 }

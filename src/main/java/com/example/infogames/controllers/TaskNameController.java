@@ -2,6 +2,7 @@ package com.example.infogames.controllers;
 
 import com.example.infogames.audioWorker.SoundWorker;
 import com.example.infogames.specialMethods.SwitchMethods;
+import com.example.infogames.specialMethods.TasksMethods;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -36,9 +37,10 @@ public class TaskNameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SwitchMethods.closeWindow(buttonClose);
-        SwitchMethods.closeWindow(buttonNext);
+        SwitchMethods.openWindowWordWork(buttonClose);
+        SwitchMethods.openWindowWordWork(buttonNext);
         SwitchMethods.closeGameMode(buttonBack);
+        TasksMethods.setDescriptions(taskText);
         SoundWorker.addSounds(buttonBack);
         SoundWorker.addSounds(buttonNext);
         SoundWorker.addSounds(buttonClose);

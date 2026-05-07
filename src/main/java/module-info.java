@@ -40,4 +40,13 @@ module com.example.infogames {
             javafx.fxml,
             com.fasterxml.jackson.databind,
             tools.jackson.databind;
+
+    opens com.example.infogames.textFileWorker.entity to
+            tools.jackson.databind,
+            com.fasterxml.jackson.databind;
+
+    exports com.example.infogames.textFileWorker.entity to
+            com.fasterxml.jackson.databind,
+            tools.jackson.databind;
+
 }

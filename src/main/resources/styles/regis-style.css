@@ -10,6 +10,12 @@
     -fx-font-size: 35px;
 }
 
+.description-text {
+    -fx-font-family: 'Hanky Bold';
+    -fx-text-fill: black;
+    -fx-font-size: 30px;
+}
+
 .text-field {
     -fx-font-family: 'Hanky Bold';
     -fx-background-color: transparent;

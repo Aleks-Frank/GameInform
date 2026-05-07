@@ -6,6 +6,8 @@ import com.example.infogames.entity.StudentLoginDTO;
 public class GlobalStudentUser {
     public static StudentAuth globalStudent = new StudentAuth();
 
+    public static String urlFile = "";
+
     public static String getFirstName(){
         return globalStudent.getFirstName();
     }

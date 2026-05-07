@@ -46,7 +46,7 @@
                 </ImageView>
             </graphic>
         </Button>
-      <Label fx:id="taskText" alignment="CENTER" layoutX="77.0" layoutY="139.0" prefHeight="245.0" prefWidth="425.0" />
+      <Label fx:id="taskText" alignment="CENTER" layoutX="77.0" layoutY="139.0" prefHeight="245.0" prefWidth="425.0" styleClass="description-text" textAlignment="CENTER" wrapText="true" />
     </children>
    <stylesheets>
       <URL value="@../../../styles/regis-style.css" />

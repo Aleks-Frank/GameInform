@@ -82,7 +82,7 @@ public class CreateAndOpenFileWord {
 
         try (FileOutputStream fileOutputStream = new FileOutputStream(file)) {
             document.write(fileOutputStream);
-            System.out.println("Файл создан: " + file.getAbsolutePath());
+            GlobalStudentUser.urlFile = file.getAbsolutePath();
             openWordFile(file);
         } catch (IOException e) {
             System.err.println("Ошибка сохранения файла: " + e.getMessage());
@@ -100,6 +100,7 @@ public class CreateAndOpenFileWord {
         try {
             if (file.exists()) {
                 Desktop.getDesktop().open(file);
+                GlobalStudentUser.urlFile = file.getAbsolutePath();
             } else {
                 createNewWordFile(file);
             }

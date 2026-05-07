@@ -11,6 +11,7 @@ import com.example.infogames.globalEntity.GlobalStudentUser;
 import com.example.infogames.globalEntity.GlobalTask;
 import com.example.infogames.listView.ListMessage;
 import com.example.infogames.listView.ListViews;
+import com.example.infogames.textFileWorker.jsonWorker.ParseJSON;
 import com.example.infogames.workerDB.TasksRepository;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -149,9 +150,23 @@ public class SwitchMethods {
             }
             StageMethods.getPrimaryStage().hide();
             showTasksInfo();
+        });
+    }
+
+    public static void openWindowWordWork(Button button){
+        button.setOnAction(actionEvent -> {
+            GlobalTask.paragraph = ParseJSON.parseJsonToParagraphList(GlobalTask.globalTasks.getJson());
             openWindowCorrect();
             openWindowResultTask();
+            openWindowError();
+            StageMethods.getTaskStage().hide();
         });
+    }
+
+    public static void closeWindowWordWork(){
+        StageMethods.getErrorStage().hide();
+        StageMethods.getCurrectSaveStage().hide();
+        StageMethods.getResultSaveStage().hide();
     }
 
     private static void showTasksInfo(){
@@ -196,6 +211,41 @@ public class SwitchMethods {
             currectStage.setScene(newScene);
             currectStage.initStyle(StageStyle.TRANSPARENT);
             StageMethods.setCurrectSaveStage(currectStage);
+            currectStage.show();
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void reloadWindowError(){
+        StageMethods.getErrorStage().close();
+        openWindowError();
+    }
+
+    private static void openWindowError(){
+        try {
+            FXMLLoader loader = new FXMLLoader(SwitchMethods.class.getResource(ListViews.TASK_ERROR_VIEW));
+            Parent newRoot = loader.load();
+            Stage currectStage = new Stage();
+            currectStage.setAlwaysOnTop(true);
+
+            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+            double screenWidth = primaryScreenBounds.getWidth();
+            double screenHeight = primaryScreenBounds.getHeight();
+
+            double x = screenWidth - 460; // Координата x для правого края
+            double y = screenHeight - 810; // Координата y для нижнего края
+
+            currectStage.setX(x);
+            currectStage.setY(y);
+            currectStage.setResizable(false);
+            currectStage.initOwner(StageMethods.getPrimaryStage());
+            currectStage.initModality(Modality.WINDOW_MODAL);
+            Scene newScene = new Scene(newRoot);
+            newScene.setFill(Color.TRANSPARENT);
+            currectStage.setScene(newScene);
+            currectStage.initStyle(StageStyle.TRANSPARENT);
+            StageMethods.setErrorStage(currectStage);
             currectStage.show();
         }catch (Exception e){
             throw new RuntimeException(e);
@@ -259,6 +309,21 @@ public class SwitchMethods {
             StageMethods.getCurrectSaveStage().hide();
             StageMethods.getResultSaveStage().hide();
             StageMethods.getTaskStage().hide();
+            StageMethods.getErrorStage().hide();
+
+            LevelsController levelsController = LevelsController.getInstance();
+            if (levelsController != null) {
+                int currentStars = GlobalStudentUser.globalStudent.getCountCoins();
+                levelsController.updateStarsCount(currentStars);
+            }
+
+            StageMethods.getPrimaryStage().show();
+        });
+    }
+
+    public static void closeGameModeWin(Button button){
+        button.setOnAction(actionEvent -> {
+            StageMethods.getWinSaveStage().hide();
 
             LevelsController levelsController = LevelsController.getInstance();
             if (levelsController != null) {
@@ -273,6 +338,7 @@ public class SwitchMethods {
     public static void openTasksStage(Button button){
         button.setOnAction(actionEvent -> {
             StageMethods.getTaskStage().show();
+            closeWindowWordWork();
         });
     }
 
@@ -376,6 +442,37 @@ public class SwitchMethods {
                 stage.centerOnScreen();
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+        });
+    }
+
+    public static void switchWinWindow(){
+        try {
+            FXMLLoader loader = new FXMLLoader(SwitchMethods.class.getResource(ListViews.TASK_WIN_VIEW));
+            Parent newRoot = loader.load();
+            Stage infoTaskStage = new Stage();
+            infoTaskStage.setAlwaysOnTop(true);
+            Scene scene = new Scene(newRoot);
+            scene.setFill(Color.TRANSPARENT);
+            infoTaskStage.setScene(scene);
+            infoTaskStage.initStyle(StageStyle.TRANSPARENT);
+
+            StageMethods.setWinSaveStage(infoTaskStage);
+            infoTaskStage.show();
+            closeWindowWordWork();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void switchNewLevel(Button button, String id){
+        button.setOnAction(actionEvent -> {
+            try {
+                getTasksInfoForDB(id);
+                showTasksInfo();
+                StageMethods.getWinSaveStage().close();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         });
     }
